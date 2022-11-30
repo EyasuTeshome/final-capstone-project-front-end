@@ -2,7 +2,7 @@ import React from 'react';
 
 function NavFooter() {
   return (
-    <div>
+    <div className="NavFooter">
       <footer className="text-center text-white">
         {/* Grid container */}
         <div className="container pt-4">
@@ -10,67 +10,70 @@ function NavFooter() {
           <section className="mb-4">
             {/* Facebook */}
             <a
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark"
               href="#!"
               role="button"
               data-mdb-ripple-color="dark"
             >
-              <i className="fab fa-facebook-f" />
+              <i className="fa fa-twitter" />
             </a>
 
             {/* Twitter */}
             <a
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark"
               href="#!"
               role="button"
               data-mdb-ripple-color="dark"
             >
-              <i className="fab fa-twitter" />
+              <i className="fa fa-facebook-f" />
             </a>
 
             {/* Google */}
             <a
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark"
               href="#!"
               role="button"
               data-mdb-ripple-color="dark"
             >
-              <i className="fab fa-google" />
+
+              <i className="fa fa-google-plus" />
             </a>
 
             {/* Instagram */}
             <a
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark"
               href="#!"
               role="button"
               data-mdb-ripple-color="dark"
             >
-              <i className="fab fa-instagram" />
+              <i className="fa fa-vimeo" />
             </a>
             {/* Linkedin */}
             <a
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark"
               href="#!"
               role="button"
               data-mdb-ripple-color="dark"
             >
-              <i className="fab fa-linkedin" />
+              <i className="fa fa-pinterest" />
             </a>
             {/* Github */}
             <a
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark"
               href="#!"
               role="button"
               data-mdb-ripple-color="dark"
             >
-              <i className="fab fa-github" />
+              <i className="fa fa-github" />
             </a>
           </section>
         </div>
 
-        <div className="text-center text-dark p-3">
-          © 2023 Copyright:
-          <a className="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        <div className="text-center text-dark pb-3">
+          © 2023
+          <br />
+          Copyright:
+          <a className="text-dark" href="https://mdbootstrap.com/">TESLA</a>
         </div>
 
       </footer>
