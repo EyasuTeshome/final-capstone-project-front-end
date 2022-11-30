@@ -14,3 +14,25 @@
   width: 100%;
   margin-top: 3rem;
 }
+
+.navbar-ul {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar-li {
+  padding: 1rem;
+  margin-top: 0.2rem;
+}
+
+.navbar-li:hover {
+  background-color: #97bf10;
+}
+
+.navbar-ul #active {
+  background-color: #97bf10;
+}
