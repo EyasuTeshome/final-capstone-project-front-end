@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import '../App.css';
+import NavFooter from './NavFooter';
 
 function Navbar() {
   const NavbarData = [
@@ -40,6 +41,7 @@ function Navbar() {
 
         </ul>
       </div>
+      <NavFooter/>
     </div>
   );
 }

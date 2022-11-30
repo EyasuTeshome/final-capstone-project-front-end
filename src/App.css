@@ -35,4 +35,9 @@ li {
 
 .navbar-ul #active {
   background-color: #97bf10;
+  color: white;
+}
+
+.navbar-li #active {
+  background-color: #97bf10;
 }
