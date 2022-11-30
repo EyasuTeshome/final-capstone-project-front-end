@@ -7,7 +7,7 @@
   background-color: white;
   height: 100%;
   width: 15%;
-  box-shadow: 0 3px 50px rgb(0 0 0 / 0.2);
+  box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
 }
 
 .logo {
@@ -16,7 +16,8 @@
 }
 
 .navbar-ul {
-  font-size: 1.5rem;
+  margin-top: 3rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -40,4 +41,17 @@ li {
 
 .navbar-li #active {
   background-color: #97bf10;
+}
+
+.btn {
+  padding: 0.2rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.NavFooter {
+  position: fixed;
+  bottom: 0;
 }
