@@ -41,7 +41,10 @@ function Navbar() {
 
         </ul>
       </div>
-      <NavFooter/>
+      <div className="footer">
+        <NavFooter/>
+      </div>
+
     </div>
   );
 }
