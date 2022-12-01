@@ -12,13 +12,15 @@ export default function SignUpPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // If the user is already logged in redirect to home page
   useEffect(() => {
     if (user.data) navigate("/");
-  }, []);
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Form validation checks if name is empty or password is less than 6 chars
     if (!name.trim() || password.length < 6) {
       setIsValid(false);
       return;
@@ -41,7 +43,6 @@ export default function SignUpPage() {
 
       if (res.status === 200) {
         dispatch(logInUser({ name, email, password }));
-        navigate("/");
       } else {
         alert("some error occured");
       }
