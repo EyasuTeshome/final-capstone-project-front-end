@@ -1,10 +1,12 @@
 /* eslint-disable */
 import React, { useState } from 'react';
+import NavFooter from './NavFooter';
 import './navbar.css';
 
 const MobileMenu = () => {
   // eslint-disable-next-line camelcase
   const [hamburger_class, setHamBurgerClass] = useState('hamburger-icon unclicked');
+  const [menu_li, setMenuLiClass] = useState('menu-li unclicked');
   // eslint-disable-next-line camelcase
   const [mobile_menu_class, setMobileMenuClass] = useState('menu hidden');
   const [isMobileMenuClicked, setIsMobileMenuClicked] = useState(false);
@@ -52,19 +54,20 @@ const MobileMenu = () => {
       <div className={mobile_menu_class}>
         <div>
         <ul className='menu-ul'>
-          {NavbarData.map((val, key) => (
+          {NavbarData.map((value, key) => (
             <li className="menu-li"
               key={key}
               onClick={() => {
-                window.location.pathname = val.link;
-                updateMenu;
+                window.location.pathname = value.link;
+
               }}
             >
-              <div>{val.name}</div>
+              <div>{value.name}</div>
             </li>
           ))}
 
         </ul>
+        <NavFooter/>
         </div>
       </div>
     </div>
