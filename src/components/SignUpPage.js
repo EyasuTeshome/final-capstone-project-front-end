@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logInUser } from "../redux/userSlice";
 
 export default function SignUpPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isValid, setIsValid] = useState(true);
+  const user = useSelector((state) => state.user);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user.data) navigate("/");
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,6 +40,7 @@ export default function SignUpPage() {
       });
 
       if (res.status === 200) {
+        dispatch(logInUser({ name, email, password }));
         navigate("/");
       } else {
         alert("some error occured");
@@ -74,7 +83,9 @@ export default function SignUpPage() {
                 className={!isValid && password.length < 6 ? "red-border" : ""}
               />
               {!isValid && password.length < 6 && (
-                <span className="invalid-input">Must be over 6 charachters long</span>
+                <span className="invalid-input">
+                  Must be over 6 charachters long
+                </span>
               )}
             </div>
 
