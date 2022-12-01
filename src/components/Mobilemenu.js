@@ -3,14 +3,12 @@ import React, { useState } from 'react';
 import './navbar.css';
 
 const MobileMenu = () => {
-  // to change burger classes
   // eslint-disable-next-line camelcase
   const [hamburger_class, setHamBurgerClass] = useState('hamburger-icon unclicked');
   // eslint-disable-next-line camelcase
   const [mobile_menu_class, setMobileMenuClass] = useState('menu hidden');
   const [isMobileMenuClicked, setIsMobileMenuClicked] = useState(false);
 
-  // toggle burger menu change
   const updateMenu = () => {
     if (!isMobileMenuClicked) {
       setHamBurgerClass('hamburger-icon clicked');
