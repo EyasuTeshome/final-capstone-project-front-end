@@ -1,26 +1,16 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+/* eslint-disable no-param-reassign */
 
-const data = JSON.parse(localStorage.getItem("user"));
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const userSlice = createSlice({
-  name: "user",
-  initialState: { data },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase("users/logInUser/fulfilled", (state, action) => {
-      /* eslint-disable no-param-reassign */
-      state.data = action.payload;
-    });
-  },
-});
+const data = JSON.parse(localStorage.getItem('user'));
 
 export const logInUser = createAsyncThunk(
-  "users/logInUser",
+  'users/logInUser',
   async ({ email, password }) => {
-    const res = await fetch("http://localhost:3000/users/sign_in", {
-      method: "POST",
+    const res = await fetch('http://localhost:3000/users/sign_in', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         user: {
@@ -29,14 +19,42 @@ export const logInUser = createAsyncThunk(
         },
       }),
     });
-    const auth = await res.headers.get("Authorization");
+    const auth = await res.headers.get('Authorization');
     const { user } = await res.json();
     if (res.status === 200) {
-      localStorage.setItem("user", JSON.stringify({ ...user, auth }));
+      localStorage.setItem('user', JSON.stringify({ ...user, auth }));
       return { ...user, auth };
     }
-    return null;
+    return res;
   },
 );
+
+const initialState = {
+  data,
+  error: null,
+  status: 'idle',
+};
+
+const userSlice = createSlice({
+  name: 'user',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(logInUser.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(logInUser.fulfilled, (state, action) => {
+        state.data = action.payload;
+      })
+      .addCase(logInUser.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
+  },
+});
+
+export const logInUserStatus = (state) => state.user.status;
+export const logInUserError = (state) => state.user.error;
 
 export default userSlice;

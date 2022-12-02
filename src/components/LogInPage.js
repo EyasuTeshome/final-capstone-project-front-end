@@ -1,31 +1,45 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { logInUser } from "../redux/userSlice";
-import "../Auth.css";
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { SpinnerRoundOutlined } from 'spinners-react';
+
+import { logInUser, logInUserStatus, logInUserError } from '../redux/userSlice';
+import '../Auth.css';
 
 export default function LogInPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const user = useSelector((state) => state.user);
+  const status = useSelector(logInUserStatus);
+  const error = useSelector(logInUserError);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // If the user is already logged in redirect to home page
   useEffect(() => {
-    if (user.data) navigate("/");
-  }, [user]);
+    if (user.data) navigate('/');
+  }, [user, dispatch]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(logInUser({ email, password }));
   };
 
+  let isLoading = false;
+  if (status === 'loading') {
+    isLoading = true;
+  }
+  let errorMessage = '';
+  if (error) {
+    errorMessage = error;
+  }
+
   return (
     <div className="background">
       <div className="layer">
         <div className="auth-page">
           <h1>LOG IN</h1>
+          {errorMessage && <p className="error">{errorMessage}</p>}
           <form onSubmit={handleSubmit}>
             <input
               type="email"
@@ -42,7 +56,15 @@ export default function LogInPage() {
             />
 
             <button type="submit" className="form-btn">
-              NEXT
+              {isLoading ? (
+                <span>
+                  Logging in
+                  {" "}
+                  <SpinnerRoundOutlined color="black" size={40} />
+                </span>
+              ) : (
+                'Log In'
+              )}
             </button>
 
             <Link className="auth-link" to="/sign_up">
