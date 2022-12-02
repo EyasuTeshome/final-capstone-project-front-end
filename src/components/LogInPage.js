@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { SpinnerRoundOutlined } from 'spinners-react';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { logInUser, logInUserStatus, logInUserError } from '../redux/userSlice';
 import '../Auth.css';
 
@@ -15,9 +16,15 @@ export default function LogInPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const handleToast = () => {
+    toast(error, { position: 'top-center', type: 'error', autoClose: 5000 });
+  };
+
   // If the user is already logged in redirect to home page
   useEffect(() => {
     if (user.data) navigate('/');
+    // toast if error
+    if (error) handleToast();
   }, [user, dispatch]);
 
   const handleSubmit = async (e) => {
@@ -29,17 +36,14 @@ export default function LogInPage() {
   if (status === 'loading') {
     isLoading = true;
   }
-  let errorMessage = '';
-  if (error) {
-    errorMessage = error;
-  }
 
   return (
     <div className="background">
       <div className="layer">
+        <ToastContainer />
+
         <div className="auth-page">
           <h1>LOG IN</h1>
-          {errorMessage && <p className="error">{errorMessage}</p>}
           <form onSubmit={handleSubmit}>
             <input
               type="email"
