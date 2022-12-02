@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logInUser } from "../redux/userSlice";
+import '../Auth.css';
 
 export default function SignUpPage() {
   const [name, setName] = useState("");
