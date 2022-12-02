@@ -4,7 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { SpinnerRoundOutlined } from 'spinners-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { logInUser, logInUserStatus, logInUserError } from '../redux/userSlice';
+import {
+  logInUser,
+  logInUserStatus,
+  logInUserError,
+} from '../redux/loginSlice';
 import '../Auth.css';
 
 export default function LogInPage() {
@@ -63,7 +67,7 @@ export default function LogInPage() {
               {isLoading ? (
                 <span>
                   Logging in
-                  {" "}
+                  {' '}
                   <SpinnerRoundOutlined color="black" size={40} />
                 </span>
               ) : (

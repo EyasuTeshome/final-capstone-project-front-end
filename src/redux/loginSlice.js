@@ -1,13 +1,14 @@
 /* eslint-disable no-param-reassign */
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { API_URL } from './utils';
 
 const data = JSON.parse(localStorage.getItem('user'));
 
 export const logInUser = createAsyncThunk(
   'users/logInUser',
   async ({ email, password }) => {
-    const res = await fetch('http://localhost:3000/users/sign_in', {
+    const res = await fetch(`${API_URL}/users/sign_in`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +36,7 @@ const initialState = {
   status: 'idle',
 };
 
-const userSlice = createSlice({
+const loginSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {},
@@ -57,4 +58,4 @@ const userSlice = createSlice({
 export const logInUserStatus = (state) => state.user.status;
 export const logInUserError = (state) => state.user.error;
 
-export default userSlice;
+export default loginSlice;
