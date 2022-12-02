@@ -1,10 +1,6 @@
 <a name="readme-top"></a>
 
 <div align="center">
-
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
   <h3><b>Microverse Final group capstone - Book an Appointment - Frontend</b></h3>
 
 </div>
@@ -14,7 +10,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[your\_project\_name\] ](#-your_project_name-)
+- [📖 final-capstone-project-front-end ](#-final-capstone-project-front-end-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -36,7 +32,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 final-capstone-project-front-end <a name="about-project"></a>
 
 > The project is based on an app to book an appointment to try a Car. User see all cars in database and is able to book and try one. User can add and delete a car if user role is admin
 
@@ -128,7 +124,6 @@ To run the project, execute the following command:
 ```sh
   npm run start
 ```
--
 
 ### Run tests
 
@@ -138,7 +133,6 @@ To run tests, run the following command:
 ```sh
   npm run test
 ```
--
 
 ### Deployment
 
