@@ -2,6 +2,7 @@
   position: fixed;
   top: 0;
   bottom: 0;
+  width: 15%;
 }
 
 .hidden {
@@ -10,10 +11,9 @@
 
 .Navbar {
   background-color: white;
-  height: 100vh;
-  width: 15%;
+  height: 100%;
+  width: 100%;
   box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
-  position: fixed;
 }
 
 .logo {
@@ -159,15 +159,10 @@ a {
   width: 300px;
 }
 
-.main-nav {
-  position: relative;
-  height: 100vh;
-}
-
 .navbar-toggle {
   position: absolute;
   bottom: 80px;
-  left: 15%;
+  left: 100%;
   background-color: #97bf10;
   width: 78px;
   height: 64px;
@@ -214,14 +209,13 @@ a {
     padding-left: 1rem;
   }
 
+  .main-nav {
+    width: 18%;
+  }
+
   .Navbar {
     background-color: white;
     height: 120vh;
-    width: 18%;
     box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
-  }
-
-  .navbar-toggle {
-    left: 18%;
   }
 }
