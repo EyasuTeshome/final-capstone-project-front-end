@@ -1,8 +1,8 @@
-/*eslint-disable*/
-
-import React from "react";
-import "../App.css";
-import NavFooter from "./NavFooter";
+/* eslint-disable */
+import React from 'react';
+import '../App.css';
+import NavFooter from './NavFooter';
+import MobileMenu from './Mobilemenu';
 
 function Navbar() {
   const NavbarData = [
@@ -24,6 +24,13 @@ function Navbar() {
     },
   ];
   return (
+    <div className="main-nav">
+      <div className="mobile-menu">
+        <MobileMenu/>
+        <div className="">
+
+        </div>
+      </div>
     <div className="Navbar">
       <img
         className="logo"
@@ -49,6 +56,7 @@ function Navbar() {
       <div className="footer">
         <NavFooter />
       </div>
+    </div>
     </div>
   );
 }
