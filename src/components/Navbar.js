@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import React from 'react';
 import '../App.css';
 import NavFooter from './NavFooter';
 import MobileMenu from './Mobilemenu';
-=======
-/*eslint-disable*/
-
-import React from "react";
-import "../App.css";
-import NavFooter from "./NavFooter";
->>>>>>> dev
 
 function Navbar() {
   const NavbarData = [
