@@ -1,3 +1,8 @@
+.main-nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
 
 .Navbar {
   background-color: white;
