@@ -1,19 +1,28 @@
-import "./App.css";
+import { useSelector } from 'react-redux';
 import {
   BrowserRouter as Router,
   Navigate,
   Route,
   Routes,
-} from "react-router-dom";
-import { useSelector } from "react-redux";
-import SignUpPage from "./components/SignUpPage";
-import Navbar from "./components/Navbar";
+} from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+import Slider from './components/Main/main';
+import Latest from './components/Main/latest';
+import './App.css';
+
+import SignUpPage from './components/SignUpPage';
 
 function App() {
   const user = useSelector((state) => state.user);
 
   return (
     <div className="App">
+      <Navbar />
+      <div className="main-container">
+        <Slider />
+        <Latest />
+      </div>
       <Router>
         <Routes>
           <Route path="/sign_up" element={<SignUpPage />} />

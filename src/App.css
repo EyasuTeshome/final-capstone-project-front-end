@@ -1,13 +1,17 @@
 .App {
   width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
   height: 100vh;
 }
 
 .Navbar {
   background-color: white;
-  height: 100%;
+  height: 100vw;
   width: 15%;
   box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
+  position: fixed;
 }
 
 .logo {
@@ -63,74 +67,224 @@ a {
   justify-content: center;
 }
 
-.auth-page {
-  height: 100%;
+/* Main page */
+.main-container {
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 100px;
+  padding-left: 15%;
+  margin-left: 15%;
 }
 
-.background {
-  background-image: url(/src/images/tesla-no-bg.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100%;
+.carousel-root {
   width: 100%;
+  margin-bottom: 100px;
 }
 
-.layer {
-  background-color: rgba(151, 191, 16, 0.8);
-  width: 100%;
-  height: 100%;
+.main {
+  display: flex;
+  gap: 1rem;
 }
 
-.auth-page h1 {
-  color: white;
-  letter-spacing: 8px;
+.main img {
+  width: 40%;
 }
 
-.auth-page form {
-  width: 600px;
+.main .car-info {
+  width: 40%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-.auth-page form input {
-  width: 100%;
-  height: 36px;
-  border: none;
-  border-radius: 2px;
-  padding: 2px 12px;
-}
-
-.form-btn {
-  border-radius: 2px;
-  padding: 5px;
-  border: none;
-  width: 100px;
-  align-self: center;
-}
-
-.form-btn:hover {
-  opacity: 0.7;
-}
-
-.input-container {
+  align-items: flex-end;
   position: relative;
 }
 
-.invalid-input {
-  position: absolute;
-  color: red;
-  top: 4px;
-  right: 16px;
-  width: fit-content;
-  white-space: nowrap;
+.main .car-info h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1px;
 }
 
-.red-border {
-  border: 1px solid red !important;
+.main .car-info .price {
+  height: 50px;
+  background-color: #97bf10;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+}
+
+.main .car-info .price.even {
+  background-color: #fff;
+}
+
+.main .car-info button {
+  width: 50%;
+  height: 50px;
+  background-color: #97bf10;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  position: absolute;
+  bottom: 0;
+  border-radius: 50px;
+  align-self: center;
+}
+
+.thumbs {
+  display: flex;
+  justify-content: center;
+}
+
+.skill {
+  width: 70%;
+  padding: 2vw 1vw;
+  align-self: center;
+  background-color: rgba(0, 0, 7, 0.377);
+  border: 1px solid #ccd6f68c;
+  border-radius: 1vw;
+}
+
+.skill-bx.wow.zoomIn {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+.item img {
+  width: 300px;
+}
+
+@media screen and (max-width: 767px) {
+  .mobile-menu {
+    display: block;
+  }
+
+  .hamburger {
+    width: 3rem;
+    margin: 1rem;
+  }
+
+  .Navbar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar-ul {
+    padding-left: 1rem;
+  }
+
+  .Navbar {
+    background-color: white;
+    height: 120vw;
+    width: 18%;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
+  }
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .mobile-menu {
+    display: block;
+  }
+
+  .hamburger {
+    width: 3rem;
+    margin: 1rem;
+  }
+
+  .Navbar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar-ul {
+    padding-left: 1rem;
+  }
+
+  .Navbar {
+    background-color: white;
+    height: 120vw;
+    width: 18%;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
+  }
+
+  .auth-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .background {
+    background-image: url(/src/images/tesla-no-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  .layer {
+    background-color: rgba(151, 191, 16, 0.8);
+    width: 100%;
+    height: 100%;
+  }
+
+  .auth-page h1 {
+    color: white;
+    letter-spacing: 8px;
+  }
+
+  .auth-page form {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .auth-page form input {
+    width: 100%;
+    height: 36px;
+    border: none;
+    border-radius: 2px;
+    padding: 2px 12px;
+  }
+
+  .form-btn {
+    border-radius: 2px;
+    padding: 5px;
+    border: none;
+    width: 100px;
+    align-self: center;
+  }
+
+  .form-btn:hover {
+    opacity: 0.7;
+  }
+
+  .input-container {
+    position: relative;
+  }
+
+  .invalid-input {
+    position: absolute;
+    color: red;
+    top: 4px;
+    right: 16px;
+    width: fit-content;
+    white-space: nowrap;
+  }
+
+  .red-border {
+    border: 1px solid red !important;
+  }
 }
