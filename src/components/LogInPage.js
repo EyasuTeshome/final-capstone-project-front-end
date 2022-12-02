@@ -1,11 +1,4 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { logInUser } from "../redux/userSlice";
-import '../Auth.css';
-
-export default function SignUpPage() {
-  const [name, setName] = useState("");
+export default function LogInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isValid, setIsValid] = useState(true);
@@ -27,30 +20,8 @@ export default function SignUpPage() {
       return;
     }
 
-    try {
-      const res = await fetch("http://localhost:3000/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user: {
-            name,
-            email,
-            password,
-          },
-        }),
-      });
-
-      if (res.status === 200) {
-        dispatch(logInUser({ email, password }));
-      } else {
-        alert("some error occured");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    dispatch(logInUser({ email, password }));
+  }
 
   return (
     <div className="background">
@@ -99,4 +70,5 @@ export default function SignUpPage() {
       </div>
     </div>
   );
+}
 }

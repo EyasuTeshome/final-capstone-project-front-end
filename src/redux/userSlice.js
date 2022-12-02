@@ -16,7 +16,7 @@ const userSlice = createSlice({
 
 export const logInUser = createAsyncThunk(
   "users/logInUser",
-  async ({ name, email, password }) => {
+  async ({ email, password }) => {
     const res = await fetch("http://localhost:3000/users/sign_in", {
       method: "POST",
       headers: {
@@ -30,9 +30,10 @@ export const logInUser = createAsyncThunk(
       }),
     });
     const auth = await res.headers.get("Authorization");
+    const { user } = await res.json();
     if (res.status === 200) {
-      localStorage.setItem("user", JSON.stringify({ name, email, auth }));
-      return { name, email, auth };
+      localStorage.setItem("user", JSON.stringify({ ...user, auth }));
+      return { ...user, auth };
     }
     return null;
   },
