@@ -1,13 +1,15 @@
-import "./App.css";
+import { useSelector } from 'react-redux';
 import {
   BrowserRouter as Router,
   Navigate,
   Route,
   Routes,
-} from "react-router-dom";
-import { useSelector } from "react-redux";
-import SignUpPage from "./components/SignUpPage";
-import Navbar from "./components/Navbar";
+} from 'react-router-dom';
+import './App.css';
+
+import SignUpPage from './components/SignUpPage';
+import HomePage from './components/HomePage';
+import DetailsPage from './components/DetailsPage';
 import LogInPage from "./components/LogInPage";
 
 function App() {
@@ -21,9 +23,10 @@ function App() {
           <Route path="/log_in" element={<LogInPage />} />
           {/* If the user isnt logged it, redirect all urls to sign up page */}
           {user.data ? (
-            <Route path="/" element={<Navbar />}>
-              <Route index element={<div>Home Page</div>} />
-            </Route>
+            <>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/details" element={<DetailsPage />} />
+            </>
           ) : (
             <Route path="*" element={<Navigate to="/sign_up" />} />
           )}
