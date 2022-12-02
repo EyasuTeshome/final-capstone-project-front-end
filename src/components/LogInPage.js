@@ -1,7 +1,12 @@
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logInUser } from "../redux/userSlice";
+import "../Auth.css";
+
 export default function LogInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isValid, setIsValid] = useState(true);
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -13,62 +18,39 @@ export default function LogInPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Form validation checks if name is empty or password is less than 6 chars
-    if (!name.trim() || password.length < 6) {
-      setIsValid(false);
-      return;
-    }
-
     dispatch(logInUser({ email, password }));
-  }
+  };
 
   return (
     <div className="background">
       <div className="layer">
         <div className="auth-page">
-          <h1>SIGN UP</h1>
+          <h1>LOG IN</h1>
           <form onSubmit={handleSubmit}>
-            <div className="input-container">
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="name"
-                className={!isValid && !name.trim() ? "red-border" : ""}
-              />
-              {!isValid && !name.trim() && (
-                <span className="invalid-input">Can&apos;t be empty</span>
-              )}
-            </div>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="email"
             />
-            <div className="input-container">
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="password"
-                className={!isValid && password.length < 6 ? "red-border" : ""}
-              />
-              {!isValid && password.length < 6 && (
-                <span className="invalid-input">
-                  Must be over 6 charachters long
-                </span>
-              )}
-            </div>
+
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="password"
+            />
 
             <button type="submit" className="form-btn">
               NEXT
             </button>
+
+            <Link className="auth-link" to="/sign_up">
+              Don&apos;t have an account? Sign up here.
+            </Link>
           </form>
         </div>
       </div>
     </div>
   );
-}
 }
