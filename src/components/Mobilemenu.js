@@ -43,13 +43,13 @@ const MobileMenu = () => {
 
   return (
     <div style={{ width: '100%', height: '100vh' }}>
-      <hamburger>
+      <nav>
         <div className="burger-menu" onClick={updateMenu}>
           <div className={hamburger_class} />
           <div className={hamburger_class} />
           <div className={hamburger_class} />
         </div>
-      </hamburger>
+      </nav>
 
       <div className={mobile_menu_class}>
         <div>
