@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logInUser } from "../redux/userSlice";
+import "../Auth.css";
 
 export default function SignUpPage() {
   const [name, setName] = useState("");
@@ -42,7 +43,7 @@ export default function SignUpPage() {
       });
 
       if (res.status === 200) {
-        dispatch(logInUser({ name, email, password }));
+        dispatch(logInUser({ email, password }));
       } else {
         alert("some error occured");
       }
@@ -93,6 +94,10 @@ export default function SignUpPage() {
             <button type="submit" className="form-btn">
               NEXT
             </button>
+
+            <Link className="auth-link" to="/log_in">
+              Already signed up? Log in here.
+            </Link>
           </form>
         </div>
       </div>

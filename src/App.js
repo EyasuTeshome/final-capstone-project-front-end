@@ -10,6 +10,7 @@ import './App.css';
 import SignUpPage from './components/SignUpPage';
 import HomePage from './components/HomePage';
 import DetailsPage from './components/DetailsPage';
+import LogInPage from "./components/LogInPage";
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/sign_up" element={<SignUpPage />} />
+          <Route path="/log_in" element={<LogInPage />} />
           {/* If the user isnt logged it, redirect all urls to sign up page */}
           {user.data ? (
             <>
