@@ -25,7 +25,7 @@ function App() {
           {user.data ? (
             <>
               <Route path="/" element={<HomePage />} />
-              <Route path="/details" element={<DetailsPage />} />
+              <Route path="/cars/:id" element={<DetailsPage />} />
             </>
           ) : (
             <Route path="*" element={<Navigate to="/sign_up" />} />

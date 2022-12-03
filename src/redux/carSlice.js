@@ -26,7 +26,12 @@ const initialState = {
 const carSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    getCarDetails: (state, action) => {
+      const car = state.cars.filter((car) => car.id === action.payload);
+      state.details = car;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCars.pending, (state) => {
@@ -42,6 +47,8 @@ const carSlice = createSlice({
       });
   },
 });
+
+export const { getCarDetails } = carSlice.actions;
 
 export const getCarsStatus = (state) => state.cars.status;
 export const getCarsError = (state) => state.cars.error;
