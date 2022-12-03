@@ -39,9 +39,8 @@ const registerSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(registerUser.fulfilled, (state, action) => {
-        state.status = 'idle';
+        state.status = 'succeeded';
         state.data = action.payload;
-        console.log(action.payload);
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.status = 'failed';
