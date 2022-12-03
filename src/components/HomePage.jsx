@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { SpinnerRoundOutlined } from 'spinners-react';
 
 import {
   getAllCars,
@@ -26,7 +27,12 @@ const HomePage = () => {
 
   let content;
   if (status === 'loading') {
-    content = <div className="loader">Loading...</div>;
+    content = (
+      <div className="loader">
+        Loading Cars ..
+        <SpinnerRoundOutlined color="black" size={100} />
+      </div>
+    );
   } else if (status === 'succeeded') {
     content = cars.map((car) => (
       <div key={car.id} className="cars">
