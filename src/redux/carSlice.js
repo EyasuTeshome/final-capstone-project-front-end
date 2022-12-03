@@ -49,9 +49,9 @@ const carSlice = createSlice({
 });
 
 export const { getCarDetails } = carSlice.actions;
-
 export const getCarsStatus = (state) => state.cars.status;
 export const getCarsError = (state) => state.cars.error;
 export const getAllCars = (state) => state.cars.cars;
+export const getDetailsView = (state) => state.cars.details;
 
 export default carSlice;
