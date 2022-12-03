@@ -33,7 +33,7 @@ const carSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
-        state.data = action.payload;
+        state.cars = action.payload;
         state.status = 'succeeded';
       })
       .addCase(fetchCars.rejected, (state, action) => {
