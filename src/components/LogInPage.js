@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { SpinnerRoundOutlined } from 'spinners-react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   logInUser,
@@ -10,6 +10,7 @@ import {
   logInUserError,
 } from '../redux/loginSlice';
 import '../Auth.css';
+import { handleToast } from '../redux/utils';
 
 export default function LogInPage() {
   const [email, setEmail] = useState('');
@@ -20,15 +21,11 @@ export default function LogInPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleToast = () => {
-    toast(error, { position: 'top-center', type: 'error', autoClose: 5000 });
-  };
-
   // If the user is already logged in redirect to home page
   useEffect(() => {
     if (user.data) navigate('/');
     // toast if error
-    if (error) handleToast();
+    if (error) handleToast(error);
   }, [user, dispatch]);
 
   const handleSubmit = async (e) => {
@@ -67,7 +64,6 @@ export default function LogInPage() {
               {isLoading ? (
                 <span>
                   Logging in
-                  {' '}
                   <SpinnerRoundOutlined color="black" size={40} />
                 </span>
               ) : (

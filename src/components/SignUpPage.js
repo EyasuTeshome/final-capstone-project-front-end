@@ -1,8 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { logInUser } from '../redux/loginSlice';
+import { SpinnerRoundOutlined } from 'spinners-react';
+
+import {
+  registerUser,
+  registerUserStatus,
+  registerUserError,
+} from '../redux/registerSlice';
+
+// import { logInUser } from '../redux/loginSlice';
 import '../Auth.css';
+import { handleToast } from '../redux/utils';
 
 export default function SignUpPage() {
   const [name, setName] = useState('');
@@ -10,13 +19,20 @@ export default function SignUpPage() {
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState(true);
   const user = useSelector((state) => state.user);
+  const status = useSelector(registerUserStatus);
+  const error = useSelector(registerUserError);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // If the user is already logged in redirect to home page
   useEffect(() => {
     if (user.data) navigate('/');
+    if (error) handleToast(error);
   }, [user]);
+  let isLoading = false;
+  if (status === 'loading') {
+    isLoading = true;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,29 +43,31 @@ export default function SignUpPage() {
       return;
     }
 
-    try {
-      const res = await fetch('http://localhost:3000/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          user: {
-            name,
-            email,
-            password,
-          },
-        }),
-      });
+    dispatch(registerUser({ name, email, password }));
 
-      if (res.status === 200) {
-        dispatch(logInUser({ email, password }));
-      } else {
-        alert('some error occured');
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    // try {
+    //   const res = await fetch('http://localhost:3000/users', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //       user: {
+    //         name,
+    //         email,
+    //         password,
+    //       },
+    //     }),
+    //   });
+
+    //   if (res.status === 200) {
+    //     dispatch(logInUser({ email, password }));
+    //   } else {
+    //     alert('some error occured');
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
 
   return (
@@ -86,13 +104,21 @@ export default function SignUpPage() {
               />
               {!isValid && password.length < 6 && (
                 <span className="invalid-input">
-                  Must be over 6 charachters long
+                  Must be over 6 characters long
                 </span>
               )}
             </div>
 
             <button type="submit" className="form-btn">
-              NEXT
+              {isLoading ? (
+                <span>
+                  Creating Account
+                  {' '}
+                  <SpinnerRoundOutlined color="black" size={40} />
+                </span>
+              ) : (
+                'Register'
+              )}
             </button>
 
             <Link className="auth-link" to="/log_in">
