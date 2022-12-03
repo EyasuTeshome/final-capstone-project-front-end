@@ -219,3 +219,7 @@ a {
     box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
   }
 }
+
+.cars {
+  color: rgba(0, 0, 0, 0.377);
+}
