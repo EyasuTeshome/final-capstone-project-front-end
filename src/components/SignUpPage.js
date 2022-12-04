@@ -10,7 +10,7 @@ import {
 } from '../redux/registerSlice';
 
 // import { logInUser } from '../redux/loginSlice';
-import '../Auth.css';
+import './auth.css';
 import { handleToast } from '../redux/utils';
 
 export default function SignUpPage() {
@@ -122,7 +122,9 @@ export default function SignUpPage() {
             </button>
 
             <Link className="auth-link" to="/log_in">
-              Already signed up? Log in here.
+              Already signed up?
+              <br />
+              Log in here.
             </Link>
           </form>
         </div>
