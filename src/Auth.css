@@ -1,5 +1,5 @@
 .auth-page {
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +7,7 @@
 }
 
 .background {
-  background-image: url(/src/images/tesla-no-bg.png);
+  background-image: url(https://tesla-cdn.thron.com/delivery/public/image/tesla/03e533bf-8b1d-463f-9813-9a597aafb280/bvlatuR/std/4096x2560/M3-Homepage-Desktop-LHD);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 130%;
@@ -16,7 +16,7 @@
 }
 
 .layer {
-  background-color: rgba(151, 191, 16, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
 }
