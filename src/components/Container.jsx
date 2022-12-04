@@ -5,8 +5,12 @@ import Navbar from './Navbar';
 
 const Container = ({ children }) => (
   <div>
-    <Navbar />
-    {children}
+    <div className="children">
+      {children}
+    </div>
+    <div className="all">
+      <Navbar />
+    </div>
   </div>
 );
 
