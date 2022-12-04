@@ -42,7 +42,7 @@ const MobileMenu = () => {
   ];
 
   return (
-    <div style={{ width: '100%', height: '100vh' }}>
+    <div className="all" style={{ width: '100%', height: '100vh' }}>
       <nav>
         <div className="burger-menu" onClick={updateMenu}>
           <div className={hamburger_class} />
@@ -51,8 +51,7 @@ const MobileMenu = () => {
         </div>
       </nav>
 
-      <div className={mobile_menu_class}>
-        <div>
+      <div id="menu" className={mobile_menu_class}>
         <ul className='menu-ul'>
           {NavbarData.map((value, key) => (
             <li className="menu-li"
@@ -67,8 +66,9 @@ const MobileMenu = () => {
           ))}
 
         </ul>
+        {/* <div className="nav-footer">
         <NavFooter/>
-        </div>
+        </div> */}
       </div>
     </div>
   );
