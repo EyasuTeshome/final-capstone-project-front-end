@@ -7,13 +7,22 @@ import { API_URL } from './utils';
 
 const data = JSON.parse(localStorage.getItem('user'));
 
-export const fetchCars = createAsyncThunk('users/fetchCars', async () => {
+export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
   const headers = { Authorization: `${data.auth}` };
 
   const res = await axios.get(`${API_URL}/cars`, {
     headers,
   });
   return res.data;
+});
+
+export const deleteCar = createAsyncThunk('cars/deleteCar', async (id) => {
+  const headers = { Authorization: `${data.auth}` };
+
+  await axios.delete(`${API_URL}/cars/${id}`, {
+    headers,
+  });
+  return id;
 });
 
 const initialState = {
@@ -42,6 +51,18 @@ const carSlice = createSlice({
         state.status = 'succeeded';
       })
       .addCase(fetchCars.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      .addCase(deleteCar.pending, (state) => {
+        state.status = 'deleting';
+      })
+      .addCase(deleteCar.fulfilled, (state, action) => {
+        const carsLeft = state.cars.filter((car) => car.id !== action.payload);
+        state.cars = carsLeft;
+        state.status = 'succeeded';
+      })
+      .addCase(deleteCar.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });

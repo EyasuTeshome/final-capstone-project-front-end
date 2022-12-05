@@ -9,7 +9,7 @@ import {
   getCarsStatus,
   getCarsError,
   fetchCars,
-  getCarDetails,
+  deleteCar,
 } from '../redux/carSlice';
 
 import Container from './Container';
@@ -28,8 +28,8 @@ const DeleteItemPage = () => {
   }, [status, dispatch]);
 
   const handleDeleteItem = (id) => {
-    dispatch(getCarDetails(id));
-    navigate(`/deleteitem/`);
+    dispatch(deleteCar(id));
+    navigate(`/deleteitem`);
   };
 
   let content;
@@ -53,7 +53,7 @@ const DeleteItemPage = () => {
           type="button"
           className="btn btn-danger"
         >
-          Delete
+          {status === 'deleting' ? 'Deleting..' : 'Delete'}
         </button>
       </div>
     ));
