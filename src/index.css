@@ -25,3 +25,16 @@ code {
     'Courier New',
     monospace;
 }
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+}
