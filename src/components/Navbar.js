@@ -59,7 +59,7 @@ function Navbar() {
             {NavbarData.map((val) => (
               <li
                 className="navbar-li"
-                key={val}
+                key={val.name}
                 id={window.location.pathname === val.link ? 'active' : ''}
               >
                 <Link to={val.link}>{val.name}</Link>
