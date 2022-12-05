@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SpinnerRoundOutlined } from "spinners-react";
-// import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+import { handleToast } from "../redux/utils";
 import "./DeleteItem.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import {
   getAllCars,
@@ -16,7 +18,6 @@ import {
 import Container from "./Container";
 
 const DeleteItemPage = () => {
-  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const cars = useSelector(getAllCars);
   const status = useSelector(getCarsStatus);
@@ -29,8 +30,13 @@ const DeleteItemPage = () => {
     }
   }, [status, dispatch]);
 
-  const handleDeleteItem = (id) => {
-    dispatch(deleteCar(id));
+  const handleDeleteItem = async (id) => {
+    const res = await dispatch(deleteCar(id));
+    if (res.meta.requestStatus === "fulfilled") {
+      handleToast("successfully deleted item");
+    } else if (res.meta.requestStatus === "rejected") {
+      handleToast("failed to delete item");
+    }
   };
 
   let content;
@@ -49,7 +55,7 @@ const DeleteItemPage = () => {
           <h3>{car.name}</h3>
         </div>
 
-        {deleteStatus === `succesfully deleted car id:${car.id}` ? (
+        {car.deleted ? (
           <i className="fa-solid fa-circle-check" />
         ) : (
           <button
@@ -68,6 +74,7 @@ const DeleteItemPage = () => {
   return (
     <Container>
       <div className="container">
+        <ToastContainer />
         <div className="main-container">
           <h1 className="delete-title">Delete Item from list</h1>
           {content}

@@ -64,7 +64,9 @@ const carSlice = createSlice({
         state.deleteStatus = "deleting";
       })
       .addCase(deleteCar.fulfilled, (state, action) => {
-        state.deleteStatus = `succesfully deleted car id:${action.payload}`;
+        const car = state.cars.find((car) => car.id === action.payload);
+        car.deleted = true;
+        state.deleteStatus = "success";
       })
       .addCase(deleteCar.rejected, (state, action) => {
         state.deleteStatus = "failed";
