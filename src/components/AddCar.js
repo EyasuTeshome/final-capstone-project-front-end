@@ -46,16 +46,13 @@ function AddCar() {
                 // onChange
                 placeholder="Duration"
               />
-              <label htmlFor="image">
-                Upload Image
-                <input
-                  className="image"
-                  type="file"
-                  // value={}
-                  // onChange
-                  placeholder=""
-                />
-              </label>
+              <input
+                className=""
+                type="number"
+                // value={}
+                // onChange
+                placeholder="Image Link"
+              />
               <button className="submit-btn" type="submit">Add Car</button>
             </form>
           </div>

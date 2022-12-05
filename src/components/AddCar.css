@@ -55,6 +55,7 @@ label input {
   border-radius: 15px;
   color: black;
   box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
+  margin-left: 14rem;
 }
 
 .layer {
@@ -77,17 +78,21 @@ h1 {
 }
 
 @media screen and (max-width: 767px) {
-.form {
-  background-color: rgba(96, 131, 131, 0.5);
-  width: 20rem;
-  height: 37rem;
-  border-radius: 15px;
-  color: black;
-  box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
-  margin: 4rem;
-}
+  .form {
+    background-color: rgba(96, 131, 131, 0.5);
+    width: 90%;
+    height: 80%;
+    border-radius: 15px;
+    color: black;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
+    margin: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   .add-car {
     background-size: cover;
   }
+
 }
