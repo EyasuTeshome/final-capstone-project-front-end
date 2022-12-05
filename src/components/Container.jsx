@@ -21,7 +21,8 @@ const Container = ({ children }) => {
       const { message } = await res.json();
 
       if (res.status === 200) {
-      } else {
+        localStorage.removeItem("user");
+        window.location.reload()
       }
       handleToast(message);
     } catch (err) {
