@@ -35,6 +35,7 @@ const initialState = {
   error: null,
   status: "idle",
   details: null,
+  deleteStatus: null,
 };
 
 const carSlice = createSlice({
@@ -60,15 +61,13 @@ const carSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(deleteCar.pending, (state) => {
-        state.status = "deleting";
+        state.deleteStatus = "deleting";
       })
       .addCase(deleteCar.fulfilled, (state, action) => {
-        const carsLeft = state.cars.filter((car) => car.id !== action.payload);
-        state.cars = carsLeft;
-        state.status = "succeeded";
+        state.deleteStatus = `succesfully deleted car id:${action.payload}`;
       })
       .addCase(deleteCar.rejected, (state, action) => {
-        state.status = "failed";
+        state.deleteStatus = "failed";
         state.error = action.error.message;
       });
   },
@@ -77,6 +76,7 @@ const carSlice = createSlice({
 export const { getCarDetails } = carSlice.actions;
 export const getCarsStatus = (state) => state.cars.status;
 export const getCarsError = (state) => state.cars.error;
+export const getDeleteStatus = (state) => state.cars.deleteStatus;
 export const getAllCars = (state) => state.cars.cars;
 export const getDetailsView = (state) => state.cars.details;
 
