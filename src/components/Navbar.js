@@ -1,35 +1,43 @@
-/* eslint-disable */
-import React, { useState } from "react";
-import "../App.css";
-import NavFooter from "./NavFooter";
-import MobileMenu from "./Mobilemenu";
-import iconShow from "../images/icon-show-sidebar.svg";
-import iconHide from "../images/icon-hide-sidebar.svg";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import '../App.css';
+import NavFooter from './NavFooter';
+import MobileMenu from './Mobilemenu';
+import iconShow from '../images/icon-show-sidebar.svg';
+import iconHide from '../images/icon-hide-sidebar.svg';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(true);
+  const user = useSelector((state) => state.user);
   const NavbarData = [
     {
       name: 'MODELS',
-      link: '/models',
+      link: '/',
     },
     {
-      name: 'LIFESTYLE',
-      link: '/lifestyle',
+      name: 'RESERVE',
+      link: '/reserve',
     },
     {
-      name: 'STYLE',
-      link: '/style',
+      name: 'MY RESERVATIONS',
+      link: '/my_reservations',
     },
     {
-      name: 'TEST DRIVE',
-      link: '/testdrive',
+      name: 'ADD CAR',
+      link: '/add_car',
     },
     {
-      name: 'DELETE ITEM',
-      link: '/deleteitem',
+      name: 'DELETE CAR',
+      link: '/delete_car',
     },
   ];
+
+  // remove add and delete car options if user is not admin
+  if (!user.data.role === 'admin') {
+    NavbarData.pop();
+    NavbarData.pop();
+  }
 
   const toggleNavbar = () => {
     setIsOpen((prevState) => !prevState);
@@ -39,9 +47,8 @@ function Navbar() {
     <div className="main-nav">
       <div className="mobile-menu">
         <MobileMenu />
-        <div className=""></div>
       </div>
-      <div className={`Navbar ${isOpen ? "" : "hidden"}`}>
+      <div className={`Navbar ${isOpen ? '' : 'hidden'}`}>
         <img
           className="logo"
           src="https://marvel-b1-cdn.bc0a.com/f00000000270502/s19538.pcdn.co/wp-content/uploads/2017/08/TESLA-Logo.jpg"
@@ -49,16 +56,13 @@ function Navbar() {
         />
         <div>
           <ul className="navbar-ul">
-            {NavbarData.map((val, key) => (
+            {NavbarData.map((val) => (
               <li
                 className="navbar-li"
-                key={key}
-                id={window.location.pathname == val.link ? "active" : ""}
-                onClick={() => {
-                  window.location.pathname = val.link;
-                }}
+                key={val}
+                id={window.location.pathname === val.link ? 'active' : ''}
               >
-                <div>{val.name}</div>
+                <Link to={val.link}>{val.name}</Link>
               </li>
             ))}
           </ul>
@@ -67,12 +71,13 @@ function Navbar() {
           <NavFooter />
         </div>
       </div>
-      <div
-        className={`navbar-toggle ${isOpen ? "" : "navbar-toggle-hidden"}`}
+      <button
+        type="button"
+        className={`navbar-toggle ${isOpen ? '' : 'navbar-toggle-hidden'}`}
         onClick={toggleNavbar}
       >
-        <img src={isOpen ? iconHide : iconShow} />
-      </div>
+        <img src={isOpen ? iconHide : iconShow} alt="toggle navbar" />
+      </button>
     </div>
   );
 }

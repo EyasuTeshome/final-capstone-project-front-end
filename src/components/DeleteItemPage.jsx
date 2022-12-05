@@ -29,7 +29,7 @@ const DeleteItemPage = () => {
 
   const handleDeleteItem = (id) => {
     dispatch(deleteCar(id));
-    navigate(`/deleteitem`);
+    navigate(`/delete_car`);
   };
 
   let content;
