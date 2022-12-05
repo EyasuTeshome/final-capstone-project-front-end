@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { handleToast } from "../redux/utils";
 import Navbar from "./Navbar";
-/* eslint-disable */
 
 const Container = ({ children }) => {
   const user = useSelector((state) => state.user);
@@ -22,7 +21,7 @@ const Container = ({ children }) => {
 
       if (res.status === 200) {
         localStorage.removeItem("user");
-        window.location.reload()
+        window.location.reload();
       }
       handleToast(message);
     } catch (err) {
@@ -35,9 +34,9 @@ const Container = ({ children }) => {
     <div>
       <div className="children">{children}</div>
       <ToastContainer />
-      <div onClick={onLogout} className="log-out-btn">
+      <button type="button" onClick={onLogout} className="log-out-btn">
         LOG OUT
-      </div>
+      </button>
       <div className="all">
         <Navbar />
       </div>

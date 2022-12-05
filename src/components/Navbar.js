@@ -1,11 +1,10 @@
-/* eslint-disable */
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 import NavFooter from "./NavFooter";
 import MobileMenu from "./Mobilemenu";
 import iconShow from "../images/icon-show-sidebar.svg";
 import iconHide from "../images/icon-hide-sidebar.svg";
-import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(true);
@@ -40,7 +39,6 @@ function Navbar() {
     <div className="main-nav">
       <div className="mobile-menu">
         <MobileMenu />
-        <div className=""></div>
       </div>
       <div className={`Navbar ${isOpen ? "" : "hidden"}`}>
         <img
@@ -50,10 +48,10 @@ function Navbar() {
         />
         <div>
           <ul className="navbar-ul">
-            {NavbarData.map((val, key) => (
+            {NavbarData.map((val) => (
               <li
                 className="navbar-li"
-                key={key}
+                key={val}
                 id={window.location.pathname === val.link ? "active" : ""}
               >
                 <Link to={val.link}>{val.name}</Link>
@@ -65,12 +63,13 @@ function Navbar() {
           <NavFooter />
         </div>
       </div>
-      <div
+      <button
+        type="button"
         className={`navbar-toggle ${isOpen ? "" : "navbar-toggle-hidden"}`}
         onClick={toggleNavbar}
       >
-        <img src={isOpen ? iconHide : iconShow} />
-      </div>
+        <img src={isOpen ? iconHide : iconShow} alt="toggle navbar" />
+      </button>
     </div>
   );
 }

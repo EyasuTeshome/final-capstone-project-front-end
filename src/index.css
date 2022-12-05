@@ -33,3 +33,8 @@ a {
 a:hover {
   color: inherit;
 }
+
+button {
+  border: none;
+  background-color: inherit;
+}
