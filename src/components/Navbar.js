@@ -5,25 +5,30 @@ import NavFooter from "./NavFooter";
 import MobileMenu from "./Mobilemenu";
 import iconShow from "../images/icon-show-sidebar.svg";
 import iconHide from "../images/icon-hide-sidebar.svg";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(true);
   const NavbarData = [
     {
       name: "MODELS",
-      link: "/models",
+      link: "/",
     },
     {
-      name: "LIFESTYLE",
-      link: "/lifestyle",
+      name: "RESERVE",
+      link: "/reserve",
     },
     {
-      name: "STYLE",
-      link: "/style",
+      name: "MY RESERVATIONS",
+      link: "/my_reservations",
     },
     {
-      name: "TEST DRIVE",
-      link: "/testdrive",
+      name: "ADD CAR",
+      link: "/add_car",
+    },
+    {
+      name: "DELETE CAR",
+      link: "/delete_car",
     },
   ];
 
@@ -49,12 +54,9 @@ function Navbar() {
               <li
                 className="navbar-li"
                 key={key}
-                id={window.location.pathname == val.link ? "active" : ""}
-                onClick={() => {
-                  window.location.pathname = val.link;
-                }}
+                id={window.location.pathname === val.link ? "active" : ""}
               >
-                <div>{val.name}</div>
+                <Link to={val.link}>{val.name}</Link>
               </li>
             ))}
           </ul>
