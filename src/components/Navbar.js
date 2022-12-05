@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "../App.css";
 import NavFooter from "./NavFooter";
 import MobileMenu from "./Mobilemenu";
@@ -8,6 +9,7 @@ import iconHide from "../images/icon-hide-sidebar.svg";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(true);
+  const user = useSelector((state) => state.user);
   const NavbarData = [
     {
       name: "MODELS",
@@ -30,6 +32,12 @@ function Navbar() {
       link: "/delete_car",
     },
   ];
+
+  // remove add and delete car options if user is not admin
+  if (!user.data.role === "admin") {
+    NavbarData.pop();
+    NavbarData.pop();
+  }
 
   const toggleNavbar = () => {
     setIsOpen((prevState) => !prevState);
