@@ -10,7 +10,7 @@ import {
 } from '../redux/registerSlice';
 
 // import { logInUser } from '../redux/loginSlice';
-import './auth.css';
+import './Auth.css';
 import { handleToast } from '../redux/utils';
 
 export default function SignUpPage() {
