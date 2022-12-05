@@ -9,7 +9,7 @@ import {
   logInUserStatus,
   logInUserError,
 } from '../redux/loginSlice';
-import '../Auth.css';
+import './auth.css';
 import { handleToast } from '../redux/utils';
 
 export default function LogInPage() {
@@ -72,7 +72,9 @@ export default function LogInPage() {
             </button>
 
             <Link className="auth-link" to="/sign_up">
-              Don&apos;t have an account? Sign up here.
+              Don&apos;t have an account?
+              <br />
+              Sign up here.
             </Link>
           </form>
         </div>

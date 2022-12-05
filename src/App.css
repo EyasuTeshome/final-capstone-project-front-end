@@ -186,11 +186,6 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-  .App {
-    width: 500px;
-    height: 500px;
-  }
-
   .mobile-menu {
     display: block;
     overflow: hidden;
