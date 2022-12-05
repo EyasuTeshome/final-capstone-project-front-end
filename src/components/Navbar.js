@@ -10,20 +10,24 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(true);
   const NavbarData = [
     {
-      name: "MODELS",
-      link: "/models",
+      name: 'MODELS',
+      link: '/models',
     },
     {
-      name: "LIFESTYLE",
-      link: "/lifestyle",
+      name: 'LIFESTYLE',
+      link: '/lifestyle',
     },
     {
-      name: "STYLE",
-      link: "/style",
+      name: 'STYLE',
+      link: '/style',
     },
     {
-      name: "TEST DRIVE",
-      link: "/testdrive",
+      name: 'TEST DRIVE',
+      link: '/testdrive',
+    },
+    {
+      name: 'DELETE ITEM',
+      link: '/deleteitem',
     },
   ];
 
