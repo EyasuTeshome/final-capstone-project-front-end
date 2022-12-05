@@ -213,3 +213,14 @@ a {
 .cars {
   color: rgba(0, 0, 0, 0.377);
 }
+
+.log-out-btn {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 20px;
+}
+
+.log-out-btn:hover {
+  color: #97bf10;
+}

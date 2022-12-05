@@ -71,6 +71,7 @@ export default function SignUpPage() {
     <div className="background">
       <div className="layer">
         <div className="auth-page">
+          <ToastContainer />
           <h1>SIGN UP</h1>
           <form onSubmit={handleSubmit}>
             <div className="input-container">
@@ -125,7 +126,6 @@ export default function SignUpPage() {
           </form>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 }
