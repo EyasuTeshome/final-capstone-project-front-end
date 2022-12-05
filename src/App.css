@@ -224,3 +224,8 @@ a {
 .log-out-btn:hover {
   opacity: 0.5;
 }
+
+.fa-circle-check {
+  color: #97bf10;
+  font-size: 24px;
+}
