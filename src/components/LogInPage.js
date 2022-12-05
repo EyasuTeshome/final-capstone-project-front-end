@@ -9,7 +9,7 @@ import {
   logInUserStatus,
   logInUserError,
 } from '../redux/loginSlice';
-import './Auth.css';
+import './auth.css';
 import { handleToast } from '../redux/utils';
 
 export default function LogInPage() {
