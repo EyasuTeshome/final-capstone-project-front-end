@@ -1,0 +1,99 @@
+.add-car {
+  background-size: cover;
+  background-image: url(https://tesla-cdn.thron.com/delivery/public/image/tesla/03e533bf-8b1d-463f-9813-9a597aafb280/bvlatuR/std/4096x2560/M3-Homepage-Desktop-LHD);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+input {
+  margin-top: 1rem;
+  width: 80%;
+  display: flex;
+  border-radius: 7px;
+  height: 2.5rem;
+  border: none;
+  padding-left: 0.5rem;
+}
+
+label {
+  margin-top: 1rem;
+  width: 80%;
+  color: white;
+  font-size: 1.2rem;
+}
+
+label input {
+  padding-left: 0;
+}
+
+.image {
+  margin-top: 0;
+}
+
+.picture {
+  margin-left: 9rem;
+}
+
+.form-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  background-color: rgba(96, 131, 131, 0.5);
+  width: 35rem;
+  height: 35rem;
+  border-radius: 15px;
+  color: black;
+  box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
+  margin-left: 14rem;
+}
+
+.layer {
+  background: linear-gradient(to right, rgba(182, 244, 146, 0.5), rgba(51, 139, 147, 0.5));
+}
+
+h1 {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.submit-btn {
+  background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+  color: white;
+  font-size: 2rem;
+  border-radius: 10px;
+  width: 50%;
+  margin-top: 1rem;
+
+  /* background-color: #97bf10; */
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    background-color: rgba(96, 131, 131, 0.5);
+    width: 90%;
+    height: 80%;
+    border-radius: 15px;
+    color: black;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 0.6);
+    margin: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .add-car {
+    background-size: cover;
+  }
+}
