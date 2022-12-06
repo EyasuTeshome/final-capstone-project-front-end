@@ -48,7 +48,7 @@ function AddCar() {
               />
               <input
                 className=""
-                type="number"
+                type="text"
                 // value={}
                 // onChange
                 placeholder="Image Link"

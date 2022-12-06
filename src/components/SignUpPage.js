@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { SpinnerRoundOutlined } from 'spinners-react';
 import { logInUser } from '../redux/loginSlice';
-import './Auth.css';
+import './auth.css';
 import { handleToast } from '../redux/utils';
 
 export default function SignUpPage() {
