@@ -39,9 +39,7 @@ function AddCar() {
       totalAmountPayable,
       duration,
       image,
-    };
-    console.log(data, 'newly created data');
-    dispatch(createCar(data));
+    };    dispatch(createCar(data));
     navigate('/');
   };
 
