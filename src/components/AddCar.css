@@ -75,6 +75,7 @@ h1 {
   border-radius: 10px;
   width: 50%;
   margin-top: 1rem;
+
   /* background-color: #97bf10; */
 }
 
@@ -96,4 +97,3 @@ h1 {
     background-size: cover;
   }
 }
-
