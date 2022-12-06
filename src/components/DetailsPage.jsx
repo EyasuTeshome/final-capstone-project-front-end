@@ -1,8 +1,9 @@
 import React from 'react';
+import { SketchPicker } from 'react-color';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Container from './Container';
-// import img1 from './images/car11.png';
+import './DetailsPage.css';
 
 import { getDetailsView } from '../redux/carSlice';
 
@@ -11,32 +12,41 @@ function DetailsPage() {
   const navigate = useNavigate();
   const renderDetails = carData.map((car) => (
     <div key={car.id}>
-      <div className="main-container">
-        <div className="main">
-          <img src={car.image} alt="car2" />
+      <div className="details-container">
+        <div className="details-main">
+          <div className="img-back" />
+          <img src={car.image} alt="car2" className="details-img" />
           <section className="car-info">
-            <h2>{car.name}</h2>
-            <p>car 1 details</p>
-            <div className="price">
-              <p>Finance Fee</p>
-              <p>$129</p>
-            </div>
-            <div className="price even">
-              <p>Finance Fee</p>
-              <p>$129</p>
+            <div className="title">
+              <h2>{car.name}</h2>
+              <p>{car.brand}</p>
             </div>
             <div className="price">
-              <p>Finance Fee</p>
-              <p>$129</p>
+              <p>Total Payable Amount</p>
+              <h5>
+                $
+                {car.total_amount_payable}
+
+              </h5>
             </div>
-            <div className="price even">
-              <p>Finance Fee</p>
-              <p>$129</p>
+            <div className="price">
+              <p>Optional to Purchase</p>
+              <h5>
+                $
+                {car.option_to_purchase_fee}
+              </h5>
             </div>
-            <p>
-              <span>5.9% APR </span>
-              representative
-            </p>
+            <div className="price">
+              <p>Duration</p>
+              <h5>
+                $
+                {car.duration}
+              </h5>
+            </div>
+            <SketchPicker className="color" />
+            <button type="submit" className="details-btn">
+              Reserve
+            </button>
           </section>
         </div>
       </div>
