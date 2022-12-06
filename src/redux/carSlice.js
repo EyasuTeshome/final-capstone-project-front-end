@@ -25,6 +25,22 @@ export const deleteCar = createAsyncThunk('cars/deleteCar', async (id) => {
   return id;
 });
 
+export const createCar = createAsyncThunk('cars/createCar', async (data) => {
+  const headers = { Authorization: `${data.auth}` };
+  const car = {
+    name: data.name,
+    image: data.image,
+    brand: data.brand,
+    duration: data.duration,
+    total_amount_payable: data.totalAmountPayable,
+    option_to_purchase_fee: data.optionToPurchaseFee,
+  };
+  await axios.post(`${API_URL}/cars`, car, {
+    headers,
+  });
+  return car;
+});
+
 const initialState = {
   cars: [],
   error: null,
@@ -63,6 +79,17 @@ const carSlice = createSlice({
         state.status = 'succeeded';
       })
       .addCase(deleteCar.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      .addCase(createCar.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(createCar.fulfilled, (state, action) => {
+        state.cars.push(action.payload);
+        state.status = 'succeeded';
+      })
+      .addCase(createCar.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });
