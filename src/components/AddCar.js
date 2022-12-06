@@ -39,7 +39,9 @@ function AddCar() {
       totalAmountPayable,
       duration,
       image,
-    };    dispatch(createCar(data));
+    };
+
+    dispatch(createCar(data));
     navigate('/');
   };
 
