@@ -11,6 +11,8 @@ import SignUpPage from './components/SignUpPage';
 import HomePage from './components/HomePage';
 import DetailsPage from './components/DetailsPage';
 import LogInPage from "./components/LogInPage";
+import AddCar from './components/AddCar';
+import DeleteItemPage from './components/DeleteItemPage';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -26,6 +28,9 @@ function App() {
             <>
               <Route path="/" element={<HomePage />} />
               <Route path="/cars/:id" element={<DetailsPage />} />
+              <Route path="/add_car" element={<AddCar />} />
+              <Route path="/delete_car" element={<DeleteItemPage />} />
+
             </>
           ) : (
             <Route path="*" element={<Navigate to="/sign_up" />} />

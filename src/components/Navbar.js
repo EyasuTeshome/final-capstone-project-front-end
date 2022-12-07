@@ -1,5 +1,6 @@
-/* eslint-disable */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "../App.css";
 import NavFooter from "./NavFooter";
 import MobileMenu from "./Mobilemenu";
@@ -8,24 +9,36 @@ import iconHide from "../images/icon-hide-sidebar.svg";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(true);
-  const NavbarData = [
+  const user = useSelector((state) => state.user);
+  const [NavbarData, setNavbarData] = useState([
     {
       name: "MODELS",
-      link: "/models",
+      link: "/",
     },
     {
-      name: "LIFESTYLE",
-      link: "/lifestyle",
+      name: "RESERVE",
+      link: "/reserve",
     },
     {
-      name: "STYLE",
-      link: "/style",
+      name: "MY RESERVATIONS",
+      link: "/my_reservations",
     },
     {
-      name: "TEST DRIVE",
-      link: "/testdrive",
+      name: "ADD CAR",
+      link: "/add_car",
     },
-  ];
+    {
+      name: "DELETE CAR",
+      link: "/delete_car",
+    },
+  ]);
+
+  // remove add and delete car options if user is not admin
+  useEffect(() => {
+    if (user.data.role !== "admin") {
+      setNavbarData((prevState) => prevState.slice(0, 3));
+    }
+  }, []);
 
   const toggleNavbar = () => {
     setIsOpen((prevState) => !prevState);
@@ -35,7 +48,6 @@ function Navbar() {
     <div className="main-nav">
       <div className="mobile-menu">
         <MobileMenu />
-        <div className=""></div>
       </div>
       <div className={`Navbar ${isOpen ? "" : "hidden"}`}>
         <img
@@ -45,16 +57,13 @@ function Navbar() {
         />
         <div>
           <ul className="navbar-ul">
-            {NavbarData.map((val, key) => (
+            {NavbarData.map((val) => (
               <li
                 className="navbar-li"
-                key={key}
-                id={window.location.pathname == val.link ? "active" : ""}
-                onClick={() => {
-                  window.location.pathname = val.link;
-                }}
+                key={val.name}
+                id={window.location.pathname === val.link ? "active" : ""}
               >
-                <div>{val.name}</div>
+                <Link to={val.link}>{val.name}</Link>
               </li>
             ))}
           </ul>
@@ -63,12 +72,13 @@ function Navbar() {
           <NavFooter />
         </div>
       </div>
-      <div
+      <button
+        type="button"
         className={`navbar-toggle ${isOpen ? "" : "navbar-toggle-hidden"}`}
         onClick={toggleNavbar}
       >
-        <img src={isOpen ? iconHide : iconShow} />
-      </div>
+        <img src={isOpen ? iconHide : iconShow} alt="toggle navbar" />
+      </button>
     </div>
   );
 }

@@ -39,6 +39,7 @@ li {
 .navbar-li {
   padding: 1rem;
   margin-top: 0.2rem;
+  cursor: pointer;
 }
 
 .navbar-li:hover {
@@ -151,4 +152,20 @@ a {
 
 .cars {
   color: rgba(0, 0, 0, 0.377);
+}
+
+.log-out-btn {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 20px;
+}
+
+.log-out-btn:hover {
+  opacity: 0.5;
+}
+
+.fa-circle-check {
+  color: #97bf10;
+  font-size: 24px;
 }

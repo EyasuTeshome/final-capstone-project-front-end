@@ -72,9 +72,7 @@ export default function LogInPage() {
             </button>
 
             <Link className="auth-link" to="/sign_up">
-              Don&apos;t have an account?
-              <br />
-              Sign up here.
+              Don&apos;t have an account? Sign up here.
             </Link>
           </form>
         </div>
