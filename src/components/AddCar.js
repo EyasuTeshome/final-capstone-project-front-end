@@ -64,25 +64,25 @@ function AddCar() {
               <input {...register('name')} placeholder="Name" />
               <p>{errors.name?.message}</p>
 
-              <input {...register('brand')} placeholder="brand" />
+              <input {...register('brand')} placeholder="Brand" />
               <p>{errors.brand?.message}</p>
 
               <input
                 {...register('optionToPurchaseFee')}
-                placeholder="optionToPurchaseFee"
+                placeholder="Option to Purchase Fee"
               />
               <p>{errors.optionToPurchaseFee?.message}</p>
 
               <input
                 {...register('totalAmountPayable')}
-                placeholder="totalAmountPayable"
+                placeholder="Total Amount Payable at the end of the contract"
               />
               <p>{errors.totalAmountPayable?.message}</p>
 
-              <input {...register('duration')} placeholder="duration" />
+              <input {...register('duration')} placeholder="Duration" />
               <p>{errors.duration?.message}</p>
 
-              <input {...register('image')} placeholder="image" />
+              <input {...register('image')} placeholder="Image Url" />
               <p>{errors.image?.message}</p>
 
               <button className="submit-btn" type="submit">
