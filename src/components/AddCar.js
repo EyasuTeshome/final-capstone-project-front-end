@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SpinnerRoundOutlined } from 'spinners-react';
 import { ToastContainer } from 'react-toastify';
@@ -25,12 +25,6 @@ const schema = yup
   .required();
 
 function AddCar() {
-  // const [name, setName] = useState('');
-  // const [brand, setBrand] = useState('');
-  // const [optionToPurchaseFee, setOptionToPurchaseFee] = useState(0);
-  // const [totalAmountPayable, setTotalAmountPayable] = useState(0);
-  // const [duration, setDuration] = useState(0);
-  // const [image, setImage] = useState('');
   const {
     register,
     handleSubmit,
@@ -38,7 +32,6 @@ function AddCar() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => console.log(data);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -53,20 +46,11 @@ function AddCar() {
     if (error) handleToast(error);
   }, [status, dispatch]);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const data = {
-  //     name,
-  //     brand,
-  //     optionToPurchaseFee,
-  //     totalAmountPayable,
-  //     duration,
-  //     image,
-  //   };
-
-  //   dispatch(createCar(data));
-  //   navigate('/');
-  // };
+  const onSubmit = (data) => {
+    dispatch(createCar(data));
+    handleToast('Car added successfully');
+    navigate('/delete_car');
+  };
 
   return (
     <div className="add-car">
