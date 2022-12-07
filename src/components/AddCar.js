@@ -1,6 +1,6 @@
-import React from 'react';
-import Navbar from './Navbar';
-import './AddCar.css';
+import React from "react";
+import Navbar from "./Navbar";
+import "./AddCar.css";
 
 function AddCar() {
   return (
@@ -10,7 +10,7 @@ function AddCar() {
         <div className="form-container">
           <div className="form">
             <h1>Add A New Car</h1>
-            <form action="">
+            <form action="" className="add-car-form">
               <input
                 className=""
                 type="text"
@@ -53,7 +53,9 @@ function AddCar() {
                 // onChange
                 placeholder="Image Link"
               />
-              <button className="submit-btn" type="submit">Add Car</button>
+              <button className="submit-btn" type="submit">
+                Add Car
+              </button>
             </form>
           </div>
         </div>
