@@ -59,14 +59,6 @@ const HomePage = () => {
         >
           View details
         </button>
-        {/* <Slider
-          name={car.name}
-          brand={car.brand}
-          duration={car.duration}
-          totalAmountPayable={car.total_amount_payable}
-          image={car.image}
-          optionFee={car.option_to_purchase_fee}
-        /> */}
       </div>
     ));
   } else if (status === 'failed') {
