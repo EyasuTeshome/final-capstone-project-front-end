@@ -1,11 +1,11 @@
 /* eslint-disable no-param-reassign */
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-import { API_URL } from "./utils";
+import { API_URL } from './utils';
 
 export const fetchCars = createAsyncThunk(
-  "cars/fetchCars",
+  'cars/fetchCars',
   async (arg, { getState }) => {
     const { data } = getState().user;
     const headers = { Authorization: `${data.auth}` };
@@ -18,7 +18,7 @@ export const fetchCars = createAsyncThunk(
 );
 
 export const deleteCar = createAsyncThunk(
-  "cars/deleteCar",
+  'cars/deleteCar',
   async (id, { getState }) => {
     const { data } = getState().user;
     const headers = { Authorization: `${data.auth}` };
@@ -30,16 +30,35 @@ export const deleteCar = createAsyncThunk(
   },
 );
 
+export const createCar = createAsyncThunk(
+  'cars/createCar',
+  async (car, { getState }) => {
+    const { data } = getState().user;
+
+    const headers = { Authorization: `${data.auth}` };
+    const carData = {
+      name: car.name,
+      image: car.image,
+      brand: car.brand,
+      duration: car.duration,
+      total_amount_payable: car.totalAmountPayable,
+      option_to_purchase_fee: car.optionToPurchaseFee,
+    };
+    const res = await axios.post(`${API_URL}/cars`, carData, { headers });
+    return res.data;
+  },
+);
+
 const initialState = {
   cars: [],
   error: null,
-  status: "idle",
+  status: 'idle',
   details: null,
   deleteStatus: null,
 };
 
 const carSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     getCarDetails: (state, action) => {
@@ -50,26 +69,37 @@ const carSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCars.pending, (state) => {
-        state.status = "loading";
+        state.status = 'loading';
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.cars = action.payload;
-        state.status = "succeeded";
+        state.status = 'succeeded';
       })
       .addCase(fetchCars.rejected, (state, action) => {
-        state.status = "failed";
+        state.status = 'failed';
         state.error = action.error.message;
       })
       .addCase(deleteCar.pending, (state) => {
-        state.deleteStatus = "deleting";
+        state.deleteStatus = 'deleting';
       })
       .addCase(deleteCar.fulfilled, (state, action) => {
         const car = state.cars.find((car) => car.id === action.payload);
         car.deleted = true;
-        state.deleteStatus = "success";
+        state.deleteStatus = 'success';
       })
       .addCase(deleteCar.rejected, (state, action) => {
-        state.deleteStatus = "failed";
+        state.deleteStatus = 'failed';
+        state.error = action.error.message;
+      })
+      .addCase(createCar.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(createCar.fulfilled, (state, action) => {
+        state.cars.push(action.payload);
+        state.status = 'succeeded';
+      })
+      .addCase(createCar.rejected, (state, action) => {
+        state.status = 'failed';
         state.error = action.error.message;
       });
   },
