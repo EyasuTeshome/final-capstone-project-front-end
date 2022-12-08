@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { SpinnerRoundOutlined } from "spinners-react";
-import { handleToast } from "../redux/utils";
+import { API_URL, handleToast } from "../redux/utils";
 import "./reservations.css";
 
 import {
@@ -42,10 +42,10 @@ export default function ReservePage() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3000/reservations", {
-        method: "POST",
+      const res = await fetch(`${API_URL}/reservations`, {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           reservation: {
