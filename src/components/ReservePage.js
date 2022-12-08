@@ -11,6 +11,7 @@ import {
   getCarsError,
   fetchCars,
 } from "../redux/carSlice";
+import Container from "./Container";
 
 export default function ReservePage() {
   const dispatch = useDispatch();
@@ -137,10 +138,12 @@ export default function ReservePage() {
   }
 
   return (
-    <div className="reserve-background">
-      <div className="reserve-layer">
-        <div className="reserve-page">{content}</div>
+    <Container>
+      <div className="reserve-background">
+        <div className="reserve-layer">
+          <div className="reserve-page">{content}</div>
+        </div>
       </div>
-    </div>
+    </Container>
   );
 }
