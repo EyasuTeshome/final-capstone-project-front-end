@@ -17,7 +17,7 @@ function DetailsPage() {
   //   backgroundColor: currentColor,
   // };
   const carData = useSelector(getDetailsView);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const renderDetails = carData.map((car) => (
     <div key={car.id}>
       <div className="details-container">
