@@ -14,7 +14,7 @@ export const fetchReservations = createAsyncThunk(
       headers,
     });
     return res.data;
-  }
+  },
 );
 
 export const createReservation = createAsyncThunk(
@@ -33,7 +33,7 @@ export const createReservation = createAsyncThunk(
       headers,
     });
     return res.data;
-  }
+  },
 );
 
 const initialState = {
