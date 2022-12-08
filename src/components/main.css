@@ -1,15 +1,47 @@
 
 .Main {
-
+height: 100vh;
 }
 
 @media screen and (max-width: 767px) {
+.headline {
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.headline h1 {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.headline p{
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.slider {
+  width: 100%;
+  margin-top: 50px;
+}
 
 .slick-slide > div {
   margin: 0 10px;
 }
 .slick-list {
   margin: 0 -10px;
+}
+
+.slick-dots {
+  display: none !important;
 }
 
 .card {
