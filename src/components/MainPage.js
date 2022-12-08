@@ -103,11 +103,11 @@ function MainPage() {
   return (
     <div className="Main">
       <Navbar />
-      <div className="headline">
-        <h1>LATEST MODELS</h1>
-        <p>Please select a Tesla Model</p>
-      </div>
       <div className="slider-container">
+        <div className="headline">
+          <h1>LATEST MODELS</h1>
+          <p>Please select a Tesla Model</p>
+        </div>
         <div className="slider">
           <Slider {...settings}>
             {content}
