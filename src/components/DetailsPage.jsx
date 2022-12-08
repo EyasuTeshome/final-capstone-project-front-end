@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Fade from 'react-reveal/Fade';
 import { ChromePicker } from 'react-color';
 import { useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Container from './Container';
 import './DetailsPage.css';
 
@@ -13,11 +13,7 @@ function DetailsPage() {
   const handleOnChange = (color) => {
     setCurrentColor(color.hex);
   };
-  // const appStyle = {
-  //   backgroundColor: currentColor,
-  // };
   const carData = useSelector(getDetailsView);
-  // const navigate = useNavigate();
   const renderDetails = carData.map((car) => (
     <div key={car.id}>
       <div className="details-container">
@@ -60,9 +56,9 @@ function DetailsPage() {
                 onChangeComplete={handleOnChange}
                 className="color"
               />
-              <button type="submit" className="details-btn">
+              <Link to="/reserve" className="details-btn link">
                 Reserve
-              </button>
+              </Link>
             </section>
           </Fade>
         </div>
@@ -73,13 +69,6 @@ function DetailsPage() {
   return (
     <Container>
       {renderDetails}
-      {/* <button
-        className="btn btn-primary"
-        type="button"
-        onClick={() => navigate(-1)}
-      >
-        Go back
-      </button> */}
     </Container>
   );
 }
