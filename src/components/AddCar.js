@@ -1,16 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { SpinnerRoundOutlined } from 'spinners-react';
-import { ToastContainer } from 'react-toastify';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { SpinnerRoundOutlined } from "spinners-react";
+import { ToastContainer } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-import { getCarsStatus, getCarsError, createCar } from '../redux/carSlice';
-import Navbar from './Navbar';
-import './AddCar.css';
-import { handleToast } from '../redux/utils';
+import { getCarsStatus, getCarsError, createCar } from "../redux/carSlice";
+import Navbar from "./Navbar";
+import "./AddCar.css";
+import { handleToast } from "../redux/utils";
 
 const schema = yup
   .object({
@@ -38,15 +38,17 @@ function AddCar() {
   let isLoading = false;
 
   useEffect(() => {
-    if (status === 'loading') {
+    if (status === "loading") {
       isLoading = true;
     }
     if (error) handleToast(error);
   }, [status, dispatch]);
 
-  const onSubmit = (data) => {
-    dispatch(createCar(data));
-    handleToast('Car added successfully');
+  const onSubmit = async (data) => {
+    const res = await dispatch(createCar(data));
+    if (res.meta.requestStatus === "fulfilled") {
+      handleToast("Car added successfully");
+    }
   };
 
   return (
@@ -58,35 +60,47 @@ function AddCar() {
           <div className="form">
             <h1>Add A New Car</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="add-car-form">
-              <input {...register('name')} placeholder="Name" />
+              <input {...register("name")} placeholder="Name" />
               <p>{errors.name?.message}</p>
 
-              <input {...register('brand')} placeholder="Brand" />
+              <input {...register("brand")} placeholder="Brand" />
               <p>{errors.brand?.message}</p>
 
               <input
-                {...register('optionToPurchaseFee')}
+                type="number"
+                min="1"
+                max="10000000"
+                {...register("optionToPurchaseFee")}
                 placeholder="Option to Purchase Fee"
               />
               <p>{errors.optionToPurchaseFee?.message}</p>
 
               <input
-                {...register('totalAmountPayable')}
+                type="number"
+                min="1"
+                max="10000000"
+                {...register("totalAmountPayable")}
                 placeholder="Total Amount Payable at the end of the contract"
               />
               <p>{errors.totalAmountPayable?.message}</p>
 
-              <input {...register('duration')} placeholder="Duration" />
+              <input
+                type="number"
+                min="1"
+                max="10000000"
+                {...register("duration")}
+                placeholder="Duration"
+              />
               <p>{errors.duration?.message}</p>
 
-              <input {...register('image')} placeholder="Image Url" />
+              <input {...register("image")} placeholder="Image Url" />
               <p>{errors.image?.message}</p>
 
               <button className="submit-btn" type="submit">
                 {isLoading ? (
                   <SpinnerRoundOutlined color="black" size={100} />
                 ) : (
-                  'Add Car'
+                  "Add Car"
                 )}
               </button>
             </form>
