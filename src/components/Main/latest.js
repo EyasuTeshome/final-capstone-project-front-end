@@ -5,6 +5,8 @@ import img3 from '../images/car80.jpg';
 import img4 from '../images/car10.jpg';
 import img6 from '../images/car6.png';
 import '../../App.css';
+import './latest.css';
+
 import 'react-multi-carousel/lib/styles.css';
 
 const Latest = () => {
