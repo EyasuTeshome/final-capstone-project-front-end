@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SpinnerRoundOutlined } from 'spinners-react';
 import { ToastContainer } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -33,7 +32,6 @@ function AddCar() {
     resolver: yupResolver(schema),
   });
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const status = useSelector(getCarsStatus);
   const error = useSelector(getCarsError);
@@ -49,7 +47,6 @@ function AddCar() {
   const onSubmit = (data) => {
     dispatch(createCar(data));
     handleToast('Car added successfully');
-    navigate('/delete_car');
   };
 
   return (
