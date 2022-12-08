@@ -22,13 +22,17 @@ export default function ReservePage() {
   const CITIES = ["London", "New York", "Berlin", "Paris"];
   const { data } = useSelector((state) => state.user);
   const [city, setCity] = useState("London");
-  const [car, setCar] = useState({ name: "", id: "" });
+  const [car, setCar] = useState("");
   const dateObject = new Date();
   dateObject.setDate(dateObject.getDate());
   const today = dateObject.toISOString().substring(0, 10);
   const [date, setDate] = useState(today);
 
   useEffect(() => {
+    if (cars.length > 0) {
+      setCar(cars[0].id);
+    }
+
     if (status === "idle") {
       dispatch(fetchCars());
     }
