@@ -43,9 +43,10 @@ export default function ReservePage() {
 
     try {
       const res = await fetch(`${API_URL}/reservations`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
+          Authorization: data.auth,
         },
         body: JSON.stringify({
           reservation: {
