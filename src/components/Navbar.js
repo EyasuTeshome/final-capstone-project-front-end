@@ -46,10 +46,18 @@ function Navbar() {
 
   return (
     <div className="main-nav">
-      <div className="mobile-menu">
+      <div
+        className={`mobile-menu ${
+          window.location.pathname === "/reserve" ? "show" : ""
+        }`}
+      >
         <MobileMenu />
       </div>
-      <div className={`Navbar ${isOpen ? "" : "hidden"}`}>
+      <div
+        className={`Navbar ${isOpen ? "" : "hidden"} ${
+          window.location.pathname === "/reserve" ? "hidden" : ""
+        }`}
+      >
         <img
           className="logo"
           src="https://marvel-b1-cdn.bc0a.com/f00000000270502/s19538.pcdn.co/wp-content/uploads/2017/08/TESLA-Logo.jpg"

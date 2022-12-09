@@ -9,6 +9,14 @@
   display: none;
 }
 
+.show {
+  display: block !important;
+}
+
+.bg-white {
+  background-color: white !important;
+}
+
 .Navbar {
   width: 15rem;
   background-color: white;
