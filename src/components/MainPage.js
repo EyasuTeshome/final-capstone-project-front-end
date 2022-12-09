@@ -7,25 +7,28 @@ import Slider from 'react-slick';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { SpinnerRoundOutlined } from 'spinners-react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
-// import { useNavigate } from 'react-router-dom';
 
 import {
   getAllCars,
   getCarsStatus,
   // getCarsError,
   fetchCars,
-  // getCarDetails,
+  getCarDetails,
 } from '../redux/carSlice';
 
 function MainPage() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const cars = useSelector(getAllCars);
   const status = useSelector(getCarsStatus);
   // const error = useSelector(getCarsError);
-
+  const showDetailsPage = (id) => {
+    dispatch(getCarDetails(id));
+    navigate(`/cars/${id}`);
+  };
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchCars());
@@ -48,25 +51,28 @@ function MainPage() {
   } else if (status === 'succeeded') {
     content = cars.map((car) => (
       // eslint-disable-next-line react/jsx-key
-      <div className="card">
-        <div className="car-background">
-          <div className="card-top">
-            <img
-              src={car.image}
-              alt={car.name}
-            />
+      <div key={car.id} className="card">
+        <button type="button" onClick={() => showDetailsPage(car.id)}>
+          <div className="car-background">
+            <div className="card-top">
+              <img
+                className="car-img"
+                src={car.image}
+                alt={car.name}
+              />
+            </div>
           </div>
-        </div>
-        <div className="card-bottom">
-          <h1 className="carname">{car.name}</h1>
-          <p className="dots">...................</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ab!</p>
-          <div className="social-handle">
-            <i className="fa fa-facebook-f" />
-            <i className="fa fa-twitter" />
-            <i className="fa-brands fa-instagram" />
+          <div className="card-bottom">
+            <h1 className="carname">{car.name}</h1>
+            <p className="dots">...................</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ab!</p>
+            <div className="social-handle">
+              <i className="fa fa-facebook-f" />
+              <i className="fa fa-twitter" />
+              <i className="fa-brands fa-instagram" />
+            </div>
           </div>
-        </div>
+        </button>
       </div>
     ));
   }
@@ -89,7 +95,7 @@ function MainPage() {
         },
       },
       {
-        breakpoint: 769,
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 2,
