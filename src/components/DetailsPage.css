@@ -106,6 +106,9 @@ div {
   border-radius: 50px;
   align-self: center;
   transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .details-main .car-info .details-btn:hover {

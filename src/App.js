@@ -15,6 +15,7 @@ import AddCar from './components/AddCar';
 import DeleteItemPage from './components/DeleteItemPage';
 import ReservePage from './components/ReservePage';
 import MainPage from './components/MainPage';
+import MyReservations from './components/MyReservations';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -34,7 +35,7 @@ function App() {
               <Route path="/reserve" element={<ReservePage />} />
               <Route path="/add_car" element={<AddCar />} />
               <Route path="/delete_car" element={<DeleteItemPage />} />
-
+              <Route path="/my_reservations" element={<MyReservations />} />
             </>
           ) : (
             <Route path="*" element={<Navigate to="/sign_up" />} />
