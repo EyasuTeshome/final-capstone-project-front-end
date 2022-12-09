@@ -14,6 +14,7 @@ import LogInPage from "./components/LogInPage";
 import AddCar from './components/AddCar';
 import DeleteItemPage from './components/DeleteItemPage';
 import ReservePage from './components/ReservePage';
+import MainPage from './components/MainPage';
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -27,7 +28,8 @@ function App() {
           {/* If the user isnt logged it, redirect all urls to sign up page */}
           {user.data ? (
             <>
-              <Route path="/" element={<HomePage />} />
+              <Route path="/" element={<MainPage />} />
+              <Route path="/models" element={<HomePage />} />
               <Route path="/cars/:id" element={<DetailsPage />} />
               <Route path="/reserve" element={<ReservePage />} />
               <Route path="/add_car" element={<AddCar />} />
