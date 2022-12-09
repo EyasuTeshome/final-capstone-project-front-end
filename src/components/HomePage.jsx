@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SpinnerRoundOutlined } from 'spinners-react';
 import { useNavigate } from 'react-router-dom';
+import './HomePage.css';
 
 import {
   getAllCars,
@@ -12,8 +13,6 @@ import {
 } from '../redux/carSlice';
 
 import Container from './Container';
-import Latest from './Main/latest';
-import Slider from './Main/main';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -44,7 +43,7 @@ const HomePage = () => {
     );
   } else if (status === 'succeeded') {
     content = cars.map((car) => (
-      <div key={car.id} className="cars">
+      <div key={car.id} className="item p-3 mx-3 d-flex">
         <h3>{car.name}</h3>
         <p>{car.brand}</p>
         <p>{car.duration}</p>
@@ -76,8 +75,6 @@ const HomePage = () => {
   return (
     <Container>
       <div className="main-container">
-        <Slider />
-        <Latest />
         {content}
       </div>
     </Container>

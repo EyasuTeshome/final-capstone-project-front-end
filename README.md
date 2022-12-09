@@ -33,8 +33,7 @@
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 final-capstone-project-front-end <a name="about-project"></a>
-
-> The project is based on an app to book an appointment to try a Car. User see all cars in database and is able to book and try one. User can add and delete a car if user role is admin
+The project is based on an app to book an appointment to try a Car. User see all cars in database and is able to book and try one. User can add and delete a car if user role is admin
 
 **[final-capstone-project-front-end]** is a...
 
@@ -67,17 +66,15 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Create, Read, and Update Cars]**
-- **[Book Cars]**
-- **[Authentication with devise]**
+- **Create, Read, and Update Cars**
+- **Book Cars**
+- **Authentication with devise**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
 
 - [Live Demo Link](https://yourdeployedapplicationlink.com)
 - [API URL](https://microverse-final-capstone-backend.onrender.com)
@@ -152,50 +149,45 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Alfred Boateng**
 
 - GitHub: [@learnwithalfred](https://github.com/learnwithalfred)
 - Twitter: [@kb_alfred](https://twitter.com/kb_alfred)
 - LinkedIn: [@learnwithalfred](https://www.linkedin.com/in/learnwithalfred/)
 
+👤**Eyasu Teshome**
 
-👤 **Author2**
+- GitHub: [@EyasuTeshome](https://github.com/EyasuTeshome)
+- Twitter: [@EyasuTeshome](https://twitter.com/EyasuTeshome)
+- LinkedIn: [Eyasu Teshome](https://linkedin.com/in/eyasu-teshome)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Dorian Urem**
+
+- GitHub: [@dodoburner](https://github.com/dodoburner)
+- Twitter: [@DorianUrem](https://twitter.com/DorianUrem)
+- LinkedIn: [Dorian Urem](https://www.linkedin.com/in/dorian-urem-252baa237/)
+
+👤 **Tuyishimire Eric**
+
+- GitHub: [@TuyishimireEric](https://github.com/TuyishimireEric)
+- LinkedIn: [@TuyishimireEric](https://www.linkedin.com/in/TuyishimireEric/)
+- E-mail: <a href="mailto:tuyishimireericc@gmail.com">tuyishimireericc@gmail.com</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
-## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/EyasuTeshome/final-capstone-project-front-end/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
-
-> Write a message to encourage readers to support your project
 
 If you like this project...
 
@@ -213,21 +205,6 @@ I would like to thank...
 
 <!-- FAQ (optional) -->
 
-## ❓ FAQ <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 

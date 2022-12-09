@@ -1,43 +1,70 @@
-import React from 'react';
+import { useState } from 'react';
+import Fade from 'react-reveal/Fade';
+import { ChromePicker } from 'react-color';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import Container from './Container';
-// import img1 from './images/car11.png';
+import './DetailsPage.css';
 
 import { getDetailsView } from '../redux/carSlice';
 
 function DetailsPage() {
+  const [currentColor, setCurrentColor] = useState('#97bf10');
+  const handleOnChange = (color) => {
+    setCurrentColor(color.hex);
+  };
+  // const appStyle = {
+  //   backgroundColor: currentColor,
+  // };
   const carData = useSelector(getDetailsView);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const renderDetails = carData.map((car) => (
     <div key={car.id}>
-      <div className="main-container">
-        <div className="main">
-          <img src={car.image} alt="car2" />
-          <section className="car-info">
-            <h2>{car.name}</h2>
-            <p>car 1 details</p>
-            <div className="price">
-              <p>Finance Fee</p>
-              <p>$129</p>
-            </div>
-            <div className="price even">
-              <p>Finance Fee</p>
-              <p>$129</p>
-            </div>
-            <div className="price">
-              <p>Finance Fee</p>
-              <p>$129</p>
-            </div>
-            <div className="price even">
-              <p>Finance Fee</p>
-              <p>$129</p>
-            </div>
-            <p>
-              <span>5.9% APR </span>
-              representative
-            </p>
-          </section>
+      <div className="details-container">
+        <div className="details-main">
+          <div className="img-back" />
+          <Fade>
+            <img src={car.image} alt="car2" className="details-img" />
+          </Fade>
+          <Fade right cascade>
+            <section className="car-info">
+              <div className="title">
+                <h2>{car.name}</h2>
+                <p>{car.brand}</p>
+              </div>
+              <div className="price">
+                <span>
+                  <p>Total Amount</p>
+                  <h5>
+                    $
+                    {car.total_amount_payable}
+                  </h5>
+                </span>
+                <span>
+                  <p>Optional to Purchase</p>
+                  <h5>
+                    $
+                    {car.option_to_purchase_fee}
+                  </h5>
+                </span>
+                <span>
+                  <p>Duration</p>
+                  <h5>
+                    $
+                    {car.duration}
+                  </h5>
+                </span>
+              </div>
+              <ChromePicker
+                color={currentColor}
+                onChangeComplete={handleOnChange}
+                className="color"
+              />
+              <button type="submit" className="details-btn">
+                Reserve
+              </button>
+            </section>
+          </Fade>
         </div>
       </div>
     </div>
@@ -46,13 +73,13 @@ function DetailsPage() {
   return (
     <Container>
       {renderDetails}
-      <button
+      {/* <button
         className="btn btn-primary"
         type="button"
         onClick={() => navigate(-1)}
       >
         Go back
-      </button>
+      </button> */}
     </Container>
   );
 }

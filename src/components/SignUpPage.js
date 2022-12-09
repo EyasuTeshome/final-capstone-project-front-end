@@ -51,12 +51,11 @@ export default function SignUpPage() {
       if (res.status === 200) {
         dispatch(logInUser({ email, password }));
       } else {
-        const detail = `DETAIL ${msg.exception.split('DETAIL')[1]}`;
         handleToast(
           <p>
             {msg.error}
             <br />
-            {detail}
+            {msg.exception}
           </p>,
         );
       }
