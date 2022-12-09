@@ -18,6 +18,7 @@ height: 100vh;
 .headline p{
   font-size: 1rem;
   font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 0;
 }
 
 .slider-container {
@@ -31,6 +32,7 @@ height: 100vh;
 .slider {
   width: 100%;
   margin-top: 50px;
+  z-index: 0;
 }
 
 .slick-slide > div {
@@ -64,8 +66,37 @@ height: 100vh;
 }
 
 .card-bottom {
-  margin: 10px 20px;
+  text-align: center;
+  color: gray;
+  margin: 0 1rem 0 1rem;
+ }
+
+.carname {
+  background: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  margin: 20px;
+  font-family:'Courier New', Courier, monospace;
+  margin-bottom: 0;
 }
+
+.dots {
+  margin-bottom: 0.5rem;
+  margin-top: 0.;
+}
+
+.social-handle i {
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem;
+  border: 2px solid gray;
+  border-radius: 50%;
+  color: gray;
+}
+
 
 .category {
   position: relative;
@@ -87,6 +118,11 @@ height: 100vh;
   border-radius: 50%;
 }
 }
+/* DESKTOP STYLE */
+/* DESKTOP STYLE */
+/* DESKTOP STYLE */
+/* DESKTOP STYLE */
+/* DESKTOP STYLE */
 
 @media screen and (min-width: 767px) {
   .headline {
@@ -103,6 +139,7 @@ height: 100vh;
   .headline p{
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 0;
   }
 
   .slider-container {
@@ -112,11 +149,12 @@ height: 100vh;
     align-items: center;
     justify-content: center;
     margin-top: -9rem;
+    margin-left:16rem;
   }
   .slider {
     width: 70%;
     margin-top: 50px;
-    margin-left: 16rem;
+
   }
 
   .slick-slide > div {
@@ -126,8 +164,6 @@ height: 100vh;
   .slick-list {
     margin: 0 -10px;
   }
-
-
 
   .slick-next {
     color: #fff;
@@ -169,14 +205,33 @@ height: 100vh;
     border: none;
     color: black;
     cursor: pointer;
+    margin-bottom: 1rem;
   }
 
   .carname {
     background: none;
     font-size: 2rem;
     font-weight: bold;
+    color: black;
     margin: 20px;
-    font-family:'Courier New', Courier, monospace
+    font-family:'Courier New', Courier, monospace;
+    margin-bottom: 0;
+  }
+
+  .dots {
+    margin-bottom: 0.5rem;
+    margin-top: 0.;
+  }
+
+  .social-handle i {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 0.5rem;
+    border: 2px solid gray;
+    border-radius: 50%;
+    color: gray;
   }
 
   .card-top > img {
@@ -185,7 +240,8 @@ height: 100vh;
   }
 
   .card-bottom {
-    margin: 10px 20px;
+   text-align: center;
+   color: gray;
   }
 
   .car-background {
