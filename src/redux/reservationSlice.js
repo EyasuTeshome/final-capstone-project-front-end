@@ -13,6 +13,7 @@ export const fetchReservations = createAsyncThunk(
     const res = await axios.get(`${API_URL}/reservations`, {
       headers,
     });
+    console.log(res);
     return res.data;
   },
 );
