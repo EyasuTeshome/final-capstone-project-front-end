@@ -13,8 +13,9 @@ import {
 import { getCarDetails, fetchCars } from "../redux/carSlice";
 
 import Container from "./Container";
-import "./DeleteItem.css";
-import "./DetailsPage.css";
+// import "./DeleteItem.css";
+// import "./DetailsPage.css";
+import "./myreservation.css";
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -55,11 +56,11 @@ const MyReservations = () => {
   } else if (status === "succeeded") {
     content = reservations.map((reservation, index) => (
       <tr key={reservation.id}>
-        <th scope="row">{index + 1}</th>
+        <td>{index + 1}</td>
         {findCar(reservation)}
+        <td>{reservation.name}</td>
         <td>{reservation.city}</td>
         <td>{reservation.date}</td>
-
         <td>
           <button
             onClick={() => showDetailsPage(reservation.car_id)}
@@ -83,14 +84,13 @@ const MyReservations = () => {
         <div className="table">
           <h1 className="delete-title">My reservations List</h1>
           <table className="table">
-            <thead className="thead-dark">
+            <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Car Name</th>
-                <th scope="col">City</th>
-                <th scope="col">Date</th>
-
-                <th scope="col">Action</th>
+                <th>#</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Date</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>{content}</tbody>
