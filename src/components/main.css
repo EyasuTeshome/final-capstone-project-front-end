@@ -1,3 +1,20 @@
+.social-handle {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-handle i {
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 2px solid gray;
+  border-radius: 50%;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 767px) {
   .headline {
     text-align: center;
@@ -5,7 +22,11 @@
   }
 
   .headline h1 {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    font-family:
+      "Gill Sans",
+      "Gill Sans MT",
+      Calibri,
+      "Trebuchet MS",
       sans-serif;
     font-weight: bold;
     font-size: 1.5rem;
@@ -38,10 +59,6 @@
     margin: 0 0;
   }
 
-  .card {
-    width: fit-content !important;
-  }
-
   .slick-list {
     margin: 0 -10px;
   }
@@ -56,6 +73,7 @@
     overflow: hidden;
     color: #fff;
     cursor: pointer;
+    width: fit-content !important;
   }
 
   .card-top h1 {
@@ -90,17 +108,6 @@
     margin-top: 0;
   }
 
-  .social-handle i {
-    height: 2.5rem;
-    width: 2.5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 0.5rem;
-    border: 2px solid gray;
-    border-radius: 50%;
-    color: gray;
-  }
-
   .category {
     position: relative;
   }
@@ -123,6 +130,9 @@
     background: rgb(1, 63, 107);
     background-size: 50%;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -142,7 +152,11 @@
   }
 
   .headline h1 {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    font-family:
+      "Gill Sans",
+      "Gill Sans MT",
+      Calibri,
+      "Trebuchet MS",
       sans-serif;
     font-weight: bold;
     font-size: 3rem;
@@ -169,7 +183,7 @@
   }
 
   .slick-slide > div {
-    margin: 0 0;
+    margin: 0 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,17 +256,6 @@
     margin-top: 0;
   }
 
-  .social-handle i {
-    height: 2.5rem;
-    width: 2.5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 8px;
-    border: 2px solid gray;
-    border-radius: 50%;
-    color: gray;
-  }
-
   .card-top > img {
     width: 100%;
     height: 200px;
@@ -266,11 +269,14 @@
   .car-background {
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background: rgb(1, 63, 107);
     background-size: 50%;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -285,7 +291,11 @@
   }
 
   .headline h1 {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    font-family:
+      "Gill Sans",
+      "Gill Sans MT",
+      Calibri,
+      "Trebuchet MS",
       sans-serif;
     font-weight: bold;
     font-size: 3rem;
@@ -317,7 +327,7 @@
   }
 
   .slick-slide > div {
-    margin: 0 0;
+    margin: 0 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -391,17 +401,6 @@
     margin-top: 0;
   }
 
-  .social-handle i {
-    height: 2.5rem;
-    width: 2.5rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 0.5rem;
-    border: 2px solid gray;
-    border-radius: 50%;
-    color: gray;
-  }
-
   .card-top > img {
     width: 100%;
     height: 200px;
@@ -420,5 +419,8 @@
     background: rgb(1, 63, 107);
     background-size: 50%;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
