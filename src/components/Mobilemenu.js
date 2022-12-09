@@ -10,14 +10,17 @@ const MobileMenu = () => {
   // eslint-disable-next-line camelcase
   const [mobile_menu_class, setMobileMenuClass] = useState('menu hidden');
   const [isMobileMenuClicked, setIsMobileMenuClicked] = useState(false);
+  const slider = document.querySelector('.slider')
 
   const updateMenu = () => {
     if (!isMobileMenuClicked) {
       setHamBurgerClass('hamburger-icon clicked');
       setMobileMenuClass('menu visible');
+      slider.style.zIndex = -1
     } else {
       setHamBurgerClass('hamburger-icon unclicked');
       setMobileMenuClass('menu hidden');
+      slider.style.zIndex = '0'
     }
     setIsMobileMenuClicked(!isMobileMenuClicked);
   };
