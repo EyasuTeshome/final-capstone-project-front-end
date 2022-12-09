@@ -72,13 +72,18 @@ function Navbar() {
           <NavFooter />
         </div>
       </div>
-      <button
-        type="button"
-        className={`navbar-toggle ${isOpen ? "" : "navbar-toggle-hidden"}`}
-        onClick={toggleNavbar}
+
+      <div
+        className={window.location.pathname.includes("cars") ? null : "hidden"}
       >
-        <img src={isOpen ? iconHide : iconShow} alt="toggle navbar" />
-      </button>
+        <button
+          type="button"
+          className={`navbar-toggle ${isOpen ? "" : "navbar-toggle-hidden"}`}
+          onClick={toggleNavbar}
+        >
+          <img src={isOpen ? iconHide : iconShow} alt="toggle navbar" />
+        </button>
+      </div>
     </div>
   );
 }
