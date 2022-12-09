@@ -58,10 +58,10 @@ const MyReservations = () => {
       <tr key={reservation.id}>
         <td>{index + 1}</td>
         {findCar(reservation)}
-        <td>{reservation.name}</td>
-        <td>{reservation.city}</td>
-        <td>{reservation.date}</td>
-        <td>
+        <td data-label="Name">Hello</td>
+        <td data-label="City">{reservation.city}</td>
+        <td data-label="Date">{reservation.date}</td>
+        <td data-label="Action">
           <button
             onClick={() => showDetailsPage(reservation.car_id)}
             className="btn btn-primary"
