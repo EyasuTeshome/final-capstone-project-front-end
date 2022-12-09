@@ -67,7 +67,7 @@ function NavFooter() {
           © 2023
           <br />
           Copyright:
-          <a className="text-dark" href="https://mdbootstrap.com/">TESLA</a>
+          <a className="text-dark" href="https://tesla.com/">TESLA</a>
         </div>
 
       </footer>
