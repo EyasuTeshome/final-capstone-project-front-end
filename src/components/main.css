@@ -26,7 +26,7 @@ height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 100vh;
 }
 
 .slider {
@@ -148,7 +148,7 @@ height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: -9rem;
+    margin-top: -3rem;
     margin-left:16rem;
   }
   .slider {
