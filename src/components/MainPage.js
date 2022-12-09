@@ -57,10 +57,16 @@ function MainPage() {
             />
           </div>
         </div>
-        <h1 className="carname">{car.name}</h1>
-        {/* <div className="card-bottom">
-          <h3>{car.name}</h3>
-        </div> */}
+        <div className="card-bottom">
+          <h1 className="carname">{car.name}</h1>
+          <p className="dots">...................</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ab!</p>
+          <div className="social-handle">
+            <i className="fa fa-facebook-f" />
+            <i className="fa fa-twitter" />
+            <i className="fa-brands fa-instagram" />
+          </div>
+        </div>
       </div>
     ));
   }
@@ -74,7 +80,7 @@ function MainPage() {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1250,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -83,9 +89,9 @@ function MainPage() {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -102,7 +108,9 @@ function MainPage() {
 
   return (
     <div className="Main">
-      <Navbar />
+      <div className="nav-nav">
+        <Navbar />
+      </div>
       <div className="slider-container">
         <div className="headline">
           <h1>LATEST MODELS</h1>
