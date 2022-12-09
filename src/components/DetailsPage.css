@@ -2,7 +2,7 @@ body {
   overflow: hidden;
 }
 
-div {
+.details-container div {
   width: 100%;
 }
 
