@@ -72,3 +72,10 @@
   background-color: #97bf10;
   border: 1px solid white;
 }
+
+@media screen and (max-width: 767px) {
+  .reserve-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
