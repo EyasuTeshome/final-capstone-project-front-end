@@ -5,14 +5,15 @@
   }
 
   .headline h1 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     font-weight: bold;
     font-size: 1.5rem;
   }
 
   .headline p {
     font-size: 1rem;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     margin-bottom: 0;
   }
 
@@ -31,7 +32,14 @@
   }
 
   .slick-slide > div {
-    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0;
+  }
+
+  .card {
+    width: fit-content !important;
   }
 
   .slick-list {
@@ -73,7 +81,7 @@
     font-weight: bold;
     color: black;
     margin: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     margin-bottom: 0;
   }
 
@@ -98,7 +106,7 @@
   }
 
   .category::before {
-    content: '';
+    content: "";
     background: rgb(255, 61, 61);
     position: absolute;
     top: calc(100% + 10px);
@@ -108,8 +116,10 @@
   }
 
   .car-background {
-    width: 100%;
-    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 300px;
     background: rgb(1, 63, 107);
     background-size: 50%;
     border-radius: 50%;
@@ -132,35 +142,37 @@
   }
 
   .headline h1 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     font-weight: bold;
     font-size: 3rem;
   }
 
   .headline p {
     font-size: 1.5rem;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     margin-bottom: 0;
   }
 
   .slider-container {
-    width: 70vw;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: -3rem;
-    margin-left: 17rem;
+    margin-top: 15%;
+    margin-left: 15rem;
   }
 
   .slider {
-    width: 73%;
     margin-top: 50px;
+  }
+
+  .slick-arrow {
+    z-index: 999999;
   }
 
   .slick-slide > div {
     margin: 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: black;
   }
 
@@ -173,8 +185,8 @@
     background-color: #97bf10;
     width: 78px;
     height: 64px;
-    border-radius: 0 100px 100px 0;
-    right: -2rem;
+    border-radius: 100px 0 0 100px;
+    right: 0;
   }
 
   .slick-next:hover,
@@ -184,28 +196,28 @@
     background-color: #97bf10;
     width: 78px;
     height: 64px;
-    border-radius: 0 100px 100px 0;
-    right: -2rem;
+    border-radius: 100px 0 0 100px;
+    right: 0;
   }
 
   .slick-prev {
-    left: -6rem;
     color: #fff;
     background-color: #97bf10;
     width: 78px;
     height: 64px;
-    border-radius: 100px 0 0 100px;
+    border-radius: 0 100px 100px 0;
+    left: 0;
   }
 
   .slick-prev:hover,
   .slick-prev:disabled,
   .slick-prev:focus {
-    left: -6rem;
     color: #fff;
     background-color: #97bf10;
     width: 78px;
     height: 64px;
-    border-radius: 100px 0 0 100px;
+    border-radius: 0 100px 100px 0;
+    left: 0;
   }
 
   .card {
@@ -221,7 +233,7 @@
     font-weight: bold;
     color: black;
     margin: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     margin-bottom: 0;
   }
 
@@ -252,8 +264,10 @@
   }
 
   .car-background {
-    width: 100%;
-    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
     background: rgb(1, 63, 107);
     background-size: 50%;
     border-radius: 50%;
@@ -271,40 +285,47 @@
   }
 
   .headline h1 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     font-weight: bold;
     font-size: 3rem;
   }
 
   .headline p {
     font-size: 1.5rem;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     margin-bottom: 0;
   }
 
   .slider-container {
-    width: 80vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: -3rem;
-    margin-left: 14rem;
+    margin-left: 15rem;
   }
 
   .slider {
-    width: 73%;
+    width: 100%;
     margin-top: 50px;
+  }
+
+  .slick-arrow {
+    z-index: 999999;
   }
 
   .slick-slide > div {
     margin: 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: black;
   }
 
   .slick-list {
-    margin: 0 -10px;
+    margin: 0 0;
   }
 
   .slick-next {
@@ -312,8 +333,8 @@
     background-color: #97bf10;
     width: 78px;
     height: 64px;
-    border-radius: 0 100px 100px 0;
-    right: -6rem;
+    border-radius: 100px 0 0 100px;
+    right: 0;
   }
 
   .slick-next:hover,
@@ -323,28 +344,28 @@
     background-color: #97bf10;
     width: 78px;
     height: 64px;
-    border-radius: 0 100px 100px 0;
-    right: -6rem;
+    border-radius: 100px 0 0 100px;
+    right: 0;
   }
 
   .slick-prev {
-    left: -6rem;
+    left: 0;
     color: #fff;
     background-color: #97bf10;
     width: 78px;
     height: 64px;
-    border-radius: 100px 0 0 100px;
+    border-radius: 0 100px 100px 0;
   }
 
   .slick-prev:hover,
   .slick-prev:disabled,
   .slick-prev:focus {
-    left: -6rem;
+    left: 0;
     color: #fff;
     background-color: #97bf10;
     width: 78px;
     height: 64px;
-    border-radius: 100px 0 0 100px;
+    border-radius: 0 100px 100px 0;
   }
 
   .card {
@@ -352,6 +373,7 @@
     color: black;
     cursor: pointer;
     margin-bottom: 1rem;
+    width: fit-content !important;
   }
 
   .carname {
@@ -360,7 +382,7 @@
     font-weight: bold;
     color: black;
     margin: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     margin-bottom: 0;
   }
 
@@ -391,8 +413,10 @@
   }
 
   .car-background {
-    width: 100%;
-    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 300px;
     background: rgb(1, 63, 107);
     background-size: 50%;
     border-radius: 50%;
