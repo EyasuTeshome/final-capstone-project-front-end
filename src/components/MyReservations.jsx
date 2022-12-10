@@ -13,15 +13,12 @@ import {
 import { getCarDetails, fetchCars } from "../redux/carSlice";
 
 import Container from "./Container";
-// import "./DeleteItem.css";
-// import "./DetailsPage.css";
 import "./myreservation.css";
 
 const MyReservations = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const reservations = useSelector(getAllReservations);
-  const { cars } = useSelector((state) => state.cars);
   const status = useSelector(getStatus);
   const error = useSelector(getError);
 
@@ -37,13 +34,14 @@ const MyReservations = () => {
     navigate(`/cars/${id}`);
   };
 
-  const findCar = (reservation) => {
-    const car = cars.find((car) => car.id === reservation.car_id);
-    if (car) {
-      return cars.find((car) => car.id === reservation.car_id).name;
-    }
-    return null;
-  };
+  // const findCar = (reservation) => {
+  //   const car = cars.find((car) => car.id === reservation.car_id);
+  //   console.log(reservation);
+  //   if (car) {
+  //     return cars.find((car) => car.id === reservation.car_id).name;
+  //   }
+  //   return null;
+  // };
 
   let content;
   if (status === "loading") {
@@ -57,12 +55,12 @@ const MyReservations = () => {
     content = reservations.map((reservation, index) => (
       <tr key={reservation.id}>
         <td data-label="#">{index + 1}</td>
-        <td data-label="Name">{findCar(reservation)}</td>
+        <td data-label="Name">{reservation.car.name}</td>
         <td data-label="City">{reservation.city}</td>
         <td data-label="Date">{reservation.date}</td>
         <td data-label="Action">
           <button
-            onClick={() => showDetailsPage(reservation.car_id)}
+            onClick={() => showDetailsPage(reservation.car.id)}
             className="btn btn-primary"
             style={{
               width: 100,
