@@ -4,51 +4,44 @@ import NavFooter from "./NavFooter";
 import "./navbar.css";
 
 const MobileMenu = () => {
+  const [hamburger_class, setHamBurgerClass] = useState('hamburger-icon unclicked');
+  const [menu_li, setMenuLiClass] = useState('menu-li unclicked');
   // eslint-disable-next-line camelcase
-  const [hamburger_class, setHamBurgerClass] = useState(
-    "hamburger-icon unclicked"
-  );
-  const [menu_li, setMenuLiClass] = useState("menu-li unclicked");
-  // eslint-disable-next-line camelcase
-  const [mobile_menu_class, setMobileMenuClass] = useState("menu hidden");
+  const [mobile_menu_class, setMobileMenuClass] = useState('menu hidden');
   const [isMobileMenuClicked, setIsMobileMenuClicked] = useState(false);
-  const slider = document.querySelector(".slider");
-
-  useEffect(() => {
-    if (window.location.pathname === "/reserve") {
-      setHamBurgerClass((prev) => prev + " bg-white");
-    }
-  }, [hamburger_class]);
 
   const updateMenu = () => {
     if (!isMobileMenuClicked) {
-      setHamBurgerClass("hamburger-icon clicked");
-      setMobileMenuClass("menu visible");
-      slider.style.zIndex = -1;
+      setHamBurgerClass('hamburger-icon clicked');
+      setMobileMenuClass('menu visible');
     } else {
-      setHamBurgerClass("hamburger-icon unclicked");
-      setMobileMenuClass("menu hidden");
-      slider.style.zIndex = "0";
+      setHamBurgerClass('hamburger-icon unclicked');
+      setMobileMenuClass('menu hidden');
     }
     setIsMobileMenuClicked(!isMobileMenuClicked);
   };
 
+
   const NavbarData = [
     {
       name: "MODELS",
-      link: "/models",
+      link: "/",
     },
     {
-      name: "LIFESTYLE",
-      link: "/lifestyle",
+      name: "RESERVE",
+      link: "/reserve",
     },
     {
-      name: "STYLE",
-      link: "/style",
+      name: "MY RESERVATIONS",
+      link: "/my_reservations",
     },
     {
-      name: "TEST DRIVE",
-      link: "/testdrive",
+      name: "ADD CAR",
+      link: "/add_car",
+    },
+    {
+      name: "DELETE CAR",
+      link: "/delete_car",
     },
   ];
 
