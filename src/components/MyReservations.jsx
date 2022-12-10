@@ -13,8 +13,9 @@ import {
 import { getCarDetails, fetchCars } from "../redux/carSlice";
 
 import Container from "./Container";
-import "./DeleteItem.css";
-import "./DetailsPage.css";
+// import "./DeleteItem.css";
+// import "./DetailsPage.css";
+import "./myreservation.css";
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const MyReservations = () => {
   const findCar = (reservation) => {
     const car = cars.find((car) => car.id === reservation.car_id);
     if (car) {
-      return <td>{cars.find((car) => car.id === reservation.car_id).name}</td>;
+      return cars.find((car) => car.id === reservation.car_id).name;
     }
     return null;
   };
@@ -55,12 +56,11 @@ const MyReservations = () => {
   } else if (status === "succeeded") {
     content = reservations.map((reservation, index) => (
       <tr key={reservation.id}>
-        <th scope="row">{index + 1}</th>
-        {findCar(reservation)}
-        <td>{reservation.city}</td>
-        <td>{reservation.date}</td>
-
-        <td>
+        <td data-label="#">{index + 1}</td>
+        <td data-label="Name">{findCar(reservation)}</td>
+        <td data-label="City">{reservation.city}</td>
+        <td data-label="Date">{reservation.date}</td>
+        <td data-label="Action">
           <button
             onClick={() => showDetailsPage(reservation.car_id)}
             className="btn btn-primary"
@@ -80,17 +80,16 @@ const MyReservations = () => {
   return (
     <Container>
       <div className="details-container">
-        <div className="table">
-          <h1 className="delete-title">My reservations List</h1>
+        <div className="table-div">
+          <h1 className="delete-title">My Reservations List</h1>
           <table className="table">
-            <thead className="thead-dark">
+            <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Car Name</th>
-                <th scope="col">City</th>
-                <th scope="col">Date</th>
-
-                <th scope="col">Action</th>
+                <th>#</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Date</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>{content}</tbody>

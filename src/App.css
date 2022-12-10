@@ -161,7 +161,7 @@ a {
   position: absolute;
   cursor: pointer;
   top: 10px;
-  right: 20px;
+  right: 30px;
 }
 
 .log-out-btn:hover {
@@ -171,4 +171,8 @@ a {
 .fa-circle-check {
   color: #97bf10;
   font-size: 24px;
+}
+
+.fa-solid {
+  font-size: 1.5rem;
 }
