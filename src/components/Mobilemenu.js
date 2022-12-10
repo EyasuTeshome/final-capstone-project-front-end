@@ -14,6 +14,7 @@ const MobileMenu = () => {
     if (!isMobileMenuClicked) {
       setHamBurgerClass('hamburger-icon clicked');
       setMobileMenuClass('menu visible');
+      
     } else {
       setHamBurgerClass('hamburger-icon unclicked');
       setMobileMenuClass('menu hidden');

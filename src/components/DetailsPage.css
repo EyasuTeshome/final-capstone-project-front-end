@@ -117,6 +117,7 @@
 .color {
   margin-top: 24px;
   width: 30%;
+  z-index: -1;
 }
 
 .img-back {
