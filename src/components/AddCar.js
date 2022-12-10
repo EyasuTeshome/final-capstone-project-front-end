@@ -27,7 +27,6 @@ function AddCar() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -60,41 +59,38 @@ function AddCar() {
           <div className="form">
             <h1>Add A New Car</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="add-car-form">
-              <input {...register("name")} placeholder="Name" />
-              <p>{errors.name?.message}</p>
+              <input required {...register("name")} placeholder="Name" />
 
-              <input {...register("brand")} placeholder="Brand" />
-              <p>{errors.brand?.message}</p>
+              <input required {...register("brand")} placeholder="Brand" />
 
               <input
+                required
                 type="number"
                 min="1"
                 max="10000000"
                 {...register("optionToPurchaseFee")}
                 placeholder="Option to Purchase Fee"
               />
-              <p>{errors.optionToPurchaseFee?.message}</p>
 
               <input
+                required
                 type="number"
                 min="1"
                 max="10000000"
                 {...register("totalAmountPayable")}
                 placeholder="Total Amount Payable at the end of the contract"
               />
-              <p>{errors.totalAmountPayable?.message}</p>
 
               <input
+                required
                 type="number"
                 min="1"
                 max="10000000"
                 {...register("duration")}
                 placeholder="Duration"
               />
-              <p>{errors.duration?.message}</p>
 
-              <input {...register("image")} placeholder="Image Url" />
-              <p>{errors.image?.message}</p>
+              <input required {...register("image")} placeholder="Image Url" />
 
               <button className="submit-btn" type="submit">
                 {isLoading ? (
