@@ -44,7 +44,7 @@ td {
   padding: 1rem;
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
   .main-container {
     margin-left: 0;
     padding-left: 0;
