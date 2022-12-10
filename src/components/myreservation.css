@@ -1,7 +1,12 @@
 .table-div{
 	width: 100%;
 	border-collapse: collapse;
-  margin-top: 3.5rem;
+  margin-top: 2rem;
+  margin-left: 8rem;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .table td,.table th{
@@ -28,6 +33,14 @@
 /*responsive*/
 
 @media(max-width: 767px){
+  .table-div{
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 3.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
 	.table thead{
 		display: none;
 	}
@@ -55,4 +68,11 @@
 		font-weight: bold;
 		text-align: left;
 	}
+}
+
+@media screen and (min-width: 1600px) {
+  .table-div{
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
