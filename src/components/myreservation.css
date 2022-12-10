@@ -1,6 +1,7 @@
-.table{
+.table-div{
 	width: 100%;
 	border-collapse: collapse;
+  margin-top: 3.5rem;
 }
 
 .table td,.table th{
@@ -17,6 +18,12 @@
 
 .table tbody tr:nth-child(even){
 	background-color: #f5f5f5;
+}
+
+.delete-title {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  font-weight: bold;
 }
 /*responsive*/
 

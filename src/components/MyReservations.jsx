@@ -56,7 +56,7 @@ const MyReservations = () => {
   } else if (status === "succeeded") {
     content = reservations.map((reservation, index) => (
       <tr key={reservation.id}>
-        <td>{index + 1}</td>
+        <td data-label="#">{index + 1}</td>
         {findCar(reservation)}
         <td data-label="Name">Hello</td>
         <td data-label="City">{reservation.city}</td>
@@ -81,8 +81,8 @@ const MyReservations = () => {
   return (
     <Container>
       <div className="details-container">
-        <div className="table">
-          <h1 className="delete-title">My reservations List</h1>
+        <div className="table-div">
+          <h1 className="delete-title">My Reservations List</h1>
           <table className="table">
             <thead>
               <tr>
