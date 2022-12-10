@@ -14,6 +14,7 @@
   background: rgb(255, 255, 255);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0) 60%, #8daf1c5b 100%);
   padding-left: 15vw;
+  overflow: hidden;
 }
 
 .details-main {
