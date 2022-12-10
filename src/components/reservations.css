@@ -7,7 +7,8 @@
 }
 
 .reserve-layer {
-  background-color: rgba(151, 191, 16, 0.8);
+  background: linear-gradient(to right, rgba(182, 244, 146, 0.5), rgba(51, 139, 147, 0.5));
+  width: 100%;
   height: 100%;
 }
 
@@ -37,31 +38,32 @@
 
 .reserve-form {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 20px;
 }
 
 .reserve-form select {
-  width: 150px;
+  width: 15rem;
   height: 60px;
   padding: 10px;
-  border-radius: 40px;
+  border-radius: 10px;
   border: 1px solid white;
-  color: white;
-  background-color: #97bf10;
+  color: gray;
   cursor: pointer;
 }
 
 .reserve-date {
-  width: 200px;
+  width: 15rem;
+  height: 60px;
   margin: 0;
 }
 
 .reserve-btn {
-  width: 150px;
-  height: 60px;
+  width: 10rem;
+  height: 3rem;
+  border-radius: 10px;
   padding: 10px;
-  border-radius: 40px;
   background-color: white;
   color: #97bf10;
   cursor: pointer;
@@ -75,7 +77,18 @@
 
 @media screen and (max-width: 767px) {
   .reserve-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reserve-date {
+    width: 15rem;
+    height: 60px;
+  }
+
+  .reserve-btn {
+    width: 10rem;
+    height: 3rem;
+    border-radius: 10px;
   }
 }
