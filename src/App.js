@@ -8,7 +8,6 @@ import {
 import './App.css';
 
 import SignUpPage from './components/SignUpPage';
-import HomePage from './components/HomePage';
 import DetailsPage from './components/DetailsPage';
 import LogInPage from "./components/LogInPage";
 import AddCar from './components/AddCar';
@@ -30,7 +29,6 @@ function App() {
           {user.data ? (
             <>
               <Route path="/" element={<MainPage />} />
-              <Route path="/models" element={<HomePage />} />
               <Route path="/cars/:id" element={<DetailsPage />} />
               <Route path="/reserve" element={<ReservePage />} />
               <Route path="/add_car" element={<AddCar />} />
