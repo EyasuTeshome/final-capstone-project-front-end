@@ -127,6 +127,11 @@ a {
 
 .mobile-menu {
   display: none;
+  cursor: pointer;
+}
+
+.menu-li:hover {
+  background-color: #97bf10;
 }
 
 @media screen and (max-width: 767px) {
