@@ -34,15 +34,6 @@ const MyReservations = () => {
     navigate(`/cars/${id}`);
   };
 
-  // const findCar = (reservation) => {
-  //   const car = cars.find((car) => car.id === reservation.car_id);
-  //   console.log(reservation);
-  //   if (car) {
-  //     return cars.find((car) => car.id === reservation.car_id).name;
-  //   }
-  //   return null;
-  // };
-
   let content;
   if (status === "loading") {
     content = (
