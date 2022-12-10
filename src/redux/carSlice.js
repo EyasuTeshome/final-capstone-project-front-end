@@ -9,8 +9,20 @@ export const fetchCars = createAsyncThunk(
   async (arg, { getState }) => {
     const { data } = getState().user;
     const headers = { Authorization: `${data.auth}` };
-
     const res = await axios.get(`${API_URL}/cars`, {
+      headers,
+    });
+    return res.data;
+  },
+);
+
+export const fetchCarDetails = createAsyncThunk(
+  'cars/fetchCarDetails',
+  async (id, { getState }) => {
+    const { data } = getState().user;
+    const headers = { Authorization: `${data.auth}` };
+
+    const res = await axios.get(`${API_URL}/cars/${id}`, {
       headers,
     });
     return res.data;
@@ -55,6 +67,7 @@ const initialState = {
   status: 'idle',
   details: null,
   deleteStatus: null,
+  detailsStatus: null,
 };
 
 const carSlice = createSlice({
@@ -62,7 +75,7 @@ const carSlice = createSlice({
   initialState,
   reducers: {
     getCarDetails: (state, action) => {
-      const car = state.cars.filter((car) => car.id === action.payload);
+      const car = state.cars.find((car) => car.id === action.payload);
       state.details = car;
     },
   },
@@ -101,6 +114,17 @@ const carSlice = createSlice({
       .addCase(createCar.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
+      })
+      .addCase(fetchCarDetails.pending, (state) => {
+        state.detailsStatus = 'loading';
+      })
+      .addCase(fetchCarDetails.fulfilled, (state, action) => {
+        state.details = action.payload;
+        state.detailsStatus = 'succeeded';
+      })
+      .addCase(fetchCarDetails.rejected, (state, action) => {
+        state.detailsStatus = 'failed';
+        state.error = action.error.message;
       });
   },
 });
@@ -109,6 +133,7 @@ export const { getCarDetails } = carSlice.actions;
 export const getCarsStatus = (state) => state.cars.status;
 export const getCarsError = (state) => state.cars.error;
 export const getDeleteStatus = (state) => state.cars.deleteStatus;
+export const getDetailsStatus = (state) => state.cars.detailsStatus;
 export const getAllCars = (state) => state.cars.cars;
 export const getDetailsView = (state) => state.cars.details;
 
