@@ -40,7 +40,7 @@ const MyReservations = () => {
   const findCar = (reservation) => {
     const car = cars.find((car) => car.id === reservation.car_id);
     if (car) {
-      return <td>{cars.find((car) => car.id === reservation.car_id).name}</td>;
+      return cars.find((car) => car.id === reservation.car_id).name;
     }
     return null;
   };
@@ -57,8 +57,7 @@ const MyReservations = () => {
     content = reservations.map((reservation, index) => (
       <tr key={reservation.id}>
         <td data-label="#">{index + 1}</td>
-        {findCar(reservation)}
-        <td data-label="Name">Hello</td>
+        <td data-label="Name">{findCar(reservation)}</td>
         <td data-label="City">{reservation.city}</td>
         <td data-label="Date">{reservation.date}</td>
         <td data-label="Action">

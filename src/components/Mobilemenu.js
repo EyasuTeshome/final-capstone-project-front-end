@@ -21,7 +21,6 @@ const MobileMenu = () => {
     setIsMobileMenuClicked(!isMobileMenuClicked);
   };
 
-
   const NavbarData = [
     {
       name: "MODELS",
