@@ -11,6 +11,7 @@ import { getCarsStatus, getCarsError, createCar } from "../redux/carSlice";
 import Navbar from "./Navbar";
 import "./AddCar.css";
 import { handleToast } from "../redux/utils";
+import Container from "./Container";
 
 const schema = yup
   .object({
@@ -51,59 +52,61 @@ function AddCar() {
   };
 
   return (
-    <div className="add-car">
-      <Navbar />
-      <ToastContainer />
-      <div className="layer">
-        <div className="form-container">
-          <div className="form">
-            <h1>Add A New Car</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className="add-car-form">
-              <input required {...register("name")} placeholder="Name" />
+    <Container>
+      <div className="add-car">
+        <Navbar />
+        <ToastContainer />
+        <div className="layer">
+          <div className="form-container">
+            <div className="form">
+              <h1>Add A New Car</h1>
+              <form onSubmit={handleSubmit(onSubmit)} className="add-car-form">
+                <input required {...register("name")} placeholder="Name" />
 
-              <input required {...register("brand")} placeholder="Brand" />
+                <input required {...register("brand")} placeholder="Brand" />
 
-              <input
-                required
-                type="number"
-                min="1"
-                max="10000000"
-                {...register("optionToPurchaseFee")}
-                placeholder="Option to Purchase Fee"
-              />
+                <input
+                  required
+                  type="number"
+                  min="1"
+                  max="10000000"
+                  {...register("optionToPurchaseFee")}
+                  placeholder="Option to Purchase Fee"
+                />
 
-              <input
-                required
-                type="number"
-                min="1"
-                max="10000000"
-                {...register("totalAmountPayable")}
-                placeholder="Total Amount Payable at the end of the contract"
-              />
+                <input
+                  required
+                  type="number"
+                  min="1"
+                  max="10000000"
+                  {...register("totalAmountPayable")}
+                  placeholder="Total Amount Payable at the end of the contract"
+                />
 
-              <input
-                required
-                type="number"
-                min="1"
-                max="10000000"
-                {...register("duration")}
-                placeholder="Duration"
-              />
+                <input
+                  required
+                  type="number"
+                  min="1"
+                  max="10000000"
+                  {...register("duration")}
+                  placeholder="Duration"
+                />
 
-              <input required {...register("image")} placeholder="Image Url" />
+                <input required {...register("image")} placeholder="Image Url" />
 
-              <button className="submit-btn" type="submit">
-                {isLoading ? (
-                  <SpinnerRoundOutlined color="black" size={100} />
-                ) : (
-                  "Add Car"
-                )}
-              </button>
-            </form>
+                <button className="submit-btn" type="submit">
+                  {isLoading ? (
+                    <SpinnerRoundOutlined color="black" size={100} />
+                  ) : (
+                    "Add Car"
+                  )}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
 
