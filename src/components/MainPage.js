@@ -1,14 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from 'react';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './main.css';
-import Slider from 'react-slick';
+import React, { useEffect } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./main.css";
+import Slider from "react-slick";
 
-import { useSelector, useDispatch } from 'react-redux';
-import { SpinnerRoundOutlined } from 'spinners-react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from './Navbar';
+import { useSelector, useDispatch } from "react-redux";
+import { SpinnerRoundOutlined } from "spinners-react";
+import { useNavigate } from "react-router-dom";
 
 import {
   getAllCars,
@@ -16,56 +15,51 @@ import {
   // getCarsError,
   fetchCars,
   getCarDetails,
-} from '../redux/carSlice';
+} from "../redux/carSlice";
+import Container from "./Container";
 
 function MainPage() {
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
   const cars = useSelector(getAllCars);
   const status = useSelector(getCarsStatus);
-  // const error = useSelector(getCarsError);
+
   const showDetailsPage = (id) => {
     dispatch(getCarDetails(id));
     navigate(`/cars/${id}`);
   };
+
   useEffect(() => {
-    if (status === 'idle') {
+    if (status === "idle") {
       dispatch(fetchCars());
     }
   }, [status, dispatch]);
 
-  // const showDetailsPage = (id) => {
-  //   dispatch(getCarDetails(id));
-  //   navigate(`/cars/${id}`);
-  // };
-
   let content;
-  if (status === 'loading') {
+  if (status === "loading") {
     content = (
       <div className="loader">
         Loading Cars ..
         <SpinnerRoundOutlined color="black" size={100} />
       </div>
     );
-  } else if (status === 'succeeded') {
+  } else if (status === "succeeded") {
     content = cars.map((car) => (
       // eslint-disable-next-line react/jsx-key
       <div key={car.id} className="card">
         <button type="button" onClick={() => showDetailsPage(car.id)}>
           <div className="car-background">
             <div className="card-top">
-              <img
-                className="car-img"
-                src={car.image}
-                alt={car.name}
-              />
+              <img className="car-img" src={car.image} alt={car.name} />
             </div>
           </div>
           <div className="card-bottom">
             <h1 className="carname">{car.name}</h1>
             <p className="dots">...................</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, ab!</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
+              ab!
+            </p>
             <div className="social-handle">
               <i className="fa fa-facebook-f" />
               <i className="fa fa-twitter" />
@@ -113,22 +107,19 @@ function MainPage() {
   };
 
   return (
-    <div className="Main">
-      <div className="nav-nav">
-        <Navbar />
-      </div>
-      <div className="slider-container">
-        <div className="headline">
-          <h1>LATEST MODELS</h1>
-          <p>Please select a Tesla Model</p>
-        </div>
-        <div className="slider">
-          <Slider {...settings}>
-            {content}
-          </Slider>
+    <Container>
+      <div className="Main">
+        <div className="slider-container">
+          <div className="headline">
+            <h1>LATEST MODELS</h1>
+            <p>Please select a Tesla Model</p>
+          </div>
+          <div className="slider">
+            <Slider {...settings}>{content}</Slider>
+          </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
 
