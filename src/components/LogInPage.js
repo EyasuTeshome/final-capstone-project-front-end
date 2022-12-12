@@ -25,7 +25,7 @@ export default function LogInPage() {
   useEffect(() => {
     if (user.data) navigate('/');
     // toast if error
-    if (error) handleToast(error);
+    if (error) handleToast({ msg: error, type: 'error' });
   }, [user, dispatch]);
 
   const handleSubmit = async (e) => {
