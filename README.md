@@ -89,7 +89,7 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 
 ```sh
- npm intall node
+ npm install node
 ```
 
 
@@ -108,7 +108,7 @@ Install this project with:
 
 ```sh
   cd final-capstone-project-front-end
-  npm install
+  npm install/npm install --legacy-peer-deps
 ```
 -
 
@@ -119,20 +119,6 @@ To run the project, execute the following command:
 ```sh
   npm run start
 ```
-
-### Run tests
-
-To run tests, run the following command:
-
-
-```sh
-  npm run test
-```
-
-### Deployment
-
-You can deploy this project using:
-
 <!--
 Example:
 
@@ -187,7 +173,7 @@ Feel free to check the [issues page](https://github.com/EyasuTeshome/final-capst
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project...
+If you like this project please consider giving us a start.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
