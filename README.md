@@ -72,7 +72,7 @@ The project is based on an app to book an appointment to try a Car. User see all
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://tesla-rent.onrender.com/)
+- [Live Demo Link](https://reserve-car.onrender.com/)
 - [API URL](https://microverse-final-capstone-backend.onrender.com)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
