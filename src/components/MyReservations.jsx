@@ -81,8 +81,9 @@ const MyReservations = () => {
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>{content}</tbody>
+            {status === "succeeded" && <tbody>{content}</tbody>}
           </table>
+          {status !== "succeeded" && content}
         </div>
       </div>
     </Container>

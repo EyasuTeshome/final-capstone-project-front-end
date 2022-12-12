@@ -57,7 +57,7 @@ const MobileMenu = () => {
       <div id="menu" className={mobile_menu_class}>
         <ul className="menu-ul">
           {NavbarData.map((value) => (
-            <li className="menu-li" key={value}>
+            <li className="menu-li" key={value.name}>
               <Link to={value.link}>{value.name}</Link>
             </li>
           ))}
