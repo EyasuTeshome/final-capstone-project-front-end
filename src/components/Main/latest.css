@@ -1,0 +1,26 @@
+.thumbs {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+}
+
+.latest {
+  padding: 2vw 1vw;
+  align-self: center;
+  border-radius: 1vw;
+  width: 100%;
+}
+
+.skill-bx.wow.zoomIn {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  width: 100%;
+}
+
+.item img {
+  width: 300px;
+}

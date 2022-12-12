@@ -1,0 +1,425 @@
+.social-handle {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-handle i {
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 2px solid gray;
+  border-radius: 50%;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+  .headline {
+    text-align: center;
+    margin-top: 6rem;
+  }
+
+  .headline h1 {
+    font-family:
+      "Gill Sans",
+      "Gill Sans MT",
+      Calibri,
+      "Trebuchet MS",
+      sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .headline p {
+    font-size: 1rem;
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 0;
+  }
+
+  .slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .slider {
+    width: 100%;
+    margin-top: 50px;
+    z-index: 0;
+  }
+
+  .slick-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0;
+  }
+
+  .slick-list {
+    margin: 0 -10px;
+  }
+
+  .slick-dots {
+    display: none !important;
+  }
+
+  .card {
+    border: 1px solid #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    color: #fff;
+    cursor: pointer;
+    width: fit-content !important;
+  }
+
+  .card-top > img {
+    width: 650px;
+    height: 350px;
+  }
+
+  .card-top h1 {
+    font-size: 0.9rem;
+    margin: 20px;
+  }
+
+  .card-bottom {
+    text-align: center;
+    color: gray;
+    margin: 0 1rem 0 1rem;
+  }
+
+  .carname {
+    background: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    margin: 20px;
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 0;
+  }
+
+  .dots {
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+
+  .category {
+    position: relative;
+  }
+
+  .category::before {
+    content: "";
+    background: rgb(255, 61, 61);
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+
+  .car-background {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 300px;
+    background: rgb(1, 63, 107);
+    background-size: 50%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* DESKTOP STYLE */
+
+/* DESKTOP STYLE */
+
+/* DESKTOP STYLE */
+
+/* DESKTOP STYLE */
+
+/* DESKTOP STYLE */
+@media screen and (min-width: 767px) {
+  .headline {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .headline h1 {
+    font-family:
+      "Gill Sans",
+      "Gill Sans MT",
+      Calibri,
+      "Trebuchet MS",
+      sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+  }
+
+  .headline p {
+    font-size: 1.5rem;
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 0;
+  }
+
+  .slider-container {
+    height: 100vh;
+    margin-top: 15%;
+    margin-left: 15rem;
+  }
+
+  .slider {
+    margin-top: 50px;
+  }
+
+  .slick-arrow {
+    z-index: 999999;
+  }
+
+  .slick-slide > div {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+  }
+
+  .slick-list {
+    margin: 0 -10px;
+  }
+
+  .slick-next {
+    color: #fff;
+    background-color: #97bf10;
+    width: 78px;
+    height: 64px;
+    border-radius: 100px 0 0 100px;
+    right: 0;
+  }
+
+  .slick-next:hover,
+  .slick-next:disabled,
+  .slick-next:focus {
+    color: #fff;
+    background-color: #97bf10;
+    width: 78px;
+    height: 64px;
+    border-radius: 100px 0 0 100px;
+    right: 0;
+  }
+
+  .slick-prev {
+    color: #fff;
+    background-color: #97bf10;
+    width: 78px;
+    height: 64px;
+    border-radius: 0 100px 100px 0;
+    left: 0;
+  }
+
+  .slick-prev:hover,
+  .slick-prev:disabled,
+  .slick-prev:focus {
+    color: #fff;
+    background-color: #97bf10;
+    width: 78px;
+    height: 64px;
+    border-radius: 0 100px 100px 0;
+    left: 0;
+  }
+
+  .card {
+    border: none;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+
+  .carname {
+    background: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    margin: 20px;
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 0;
+  }
+
+  .dots {
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+
+  .card-top > img {
+    width: 500px;
+    height: 300px;
+  }
+
+  .card-bottom {
+    text-align: center;
+    color: gray;
+  }
+
+  .car-background {
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 250px;
+    background: rgb(1, 63, 107);
+    background-size: 50%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .Main {
+    height: 100vh;
+  }
+
+  .headline {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .headline h1 {
+    font-family:
+      "Gill Sans",
+      "Gill Sans MT",
+      Calibri,
+      "Trebuchet MS",
+      sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+  }
+
+  .headline p {
+    font-size: 1.5rem;
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 0;
+  }
+
+  .slider-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -3rem;
+    margin-left: 15rem;
+  }
+
+  .slider {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .slick-arrow {
+    z-index: 999999;
+  }
+
+  .slick-slide > div {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+  }
+
+  .slick-list {
+    margin: 0 0;
+  }
+
+  .slick-next {
+    color: #fff;
+    background-color: #97bf10;
+    width: 78px;
+    height: 64px;
+    border-radius: 100px 0 0 100px;
+    right: 0;
+  }
+
+  .slick-next:hover,
+  .slick-next:disabled,
+  .slick-next:focus {
+    color: #fff;
+    background-color: #97bf10;
+    width: 78px;
+    height: 64px;
+    border-radius: 100px 0 0 100px;
+    right: 0;
+  }
+
+  .slick-prev {
+    left: 0;
+    color: #fff;
+    background-color: #97bf10;
+    width: 78px;
+    height: 64px;
+    border-radius: 0 100px 100px 0;
+  }
+
+  .slick-prev:hover,
+  .slick-prev:disabled,
+  .slick-prev:focus {
+    left: 0;
+    color: #fff;
+    background-color: #97bf10;
+    width: 78px;
+    height: 64px;
+    border-radius: 0 100px 100px 0;
+  }
+
+  .card {
+    border: none;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    width: fit-content !important;
+  }
+
+  .card-top > img {
+    width: 650px;
+    height: 350px;
+  }
+
+  .carname {
+    background: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    margin: 20px;
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 0;
+  }
+
+  .dots {
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+
+  .card-bottom {
+    text-align: center;
+    color: gray;
+  }
+
+  .car-background {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 300px;
+    background: rgb(1, 63, 107);
+    background-size: 50%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
