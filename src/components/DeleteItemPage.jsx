@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { SpinnerRoundOutlined } from "spinners-react";
-import { ToastContainer } from "react-toastify";
-import { handleToast } from "../redux/utils";
-import "./DeleteItem.css";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { SpinnerRoundOutlined } from 'spinners-react';
+import { ToastContainer } from 'react-toastify';
+import { handleToast } from '../redux/utils';
+import './DeleteItem.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   getAllCars,
@@ -13,9 +13,9 @@ import {
   fetchCars,
   deleteCar,
   getDeleteStatus,
-} from "../redux/carSlice";
+} from '../redux/carSlice';
 
-import Container from "./Container";
+import Container from './Container';
 
 const DeleteItemPage = () => {
   const dispatch = useDispatch();
@@ -25,29 +25,29 @@ const DeleteItemPage = () => {
   const error = useSelector(getCarsError);
 
   useEffect(() => {
-    if (status === "idle") {
+    if (status === 'idle') {
       dispatch(fetchCars());
     }
   }, [status, dispatch]);
 
   const handleDeleteItem = async (id) => {
     const res = await dispatch(deleteCar(id));
-    if (res.meta.requestStatus === "fulfilled") {
-      handleToast("successfully deleted item");
-    } else if (res.meta.requestStatus === "rejected") {
-      handleToast("failed to delete item");
+    if (res.meta.requestStatus === 'fulfilled') {
+      handleToast({ msg: 'successfully deleted item', type: 'success' });
+    } else if (res.meta.requestStatus === 'rejected') {
+      handleToast({ msg: 'failed to delete item', type: 'error' });
     }
   };
 
   let content;
-  if (status === "loading") {
+  if (status === 'loading') {
     content = (
       <div className="loader">
         Loading Cars ..
         <SpinnerRoundOutlined color="black" size={100} />
       </div>
     );
-  } else if (status === "succeeded") {
+  } else if (status === 'succeeded') {
     content = cars.map((car, index) => (
       <div key={car.id} className="delete-container">
         <div className="car-name">
@@ -63,12 +63,12 @@ const DeleteItemPage = () => {
             type="button"
             className="btn btn-danger"
           >
-            {deleteStatus === "Deleting" ? "Deleting..." : "Delete"}
+            {deleteStatus === 'Deleting' ? 'Deleting...' : 'Delete'}
           </button>
         )}
       </div>
     ));
-  } else if (status === "failed") {
+  } else if (status === 'failed') {
     content = <div>{error}</div>;
   }
   return (
