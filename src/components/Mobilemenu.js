@@ -1,9 +1,11 @@
 /* eslint-disable camelcase */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
 const MobileMenu = () => {
+  const user = useSelector((state) => state.user);
   const [hamburger_class, setHamBurgerClass] = useState(
     "hamburger-icon unclicked",
   );
@@ -21,7 +23,7 @@ const MobileMenu = () => {
     setIsMobileMenuClicked(!isMobileMenuClicked);
   };
 
-  const NavbarData = [
+  const [NavbarData, setNavbarData] = useState([
     {
       name: "MODELS",
       link: "/",
@@ -42,7 +44,13 @@ const MobileMenu = () => {
       name: "DELETE CAR",
       link: "/delete_car",
     },
-  ];
+  ]);
+
+  useEffect(() => {
+    if (user.data.role !== "admin") {
+      setNavbarData((prevState) => prevState.slice(0, 3));
+    }
+  }, []);
 
   return (
     <div className="all" style={{ width: "100%", height: "100vh" }}>

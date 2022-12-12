@@ -10,7 +10,7 @@ import {
   getAllReservations,
 } from "../redux/reservationSlice";
 
-import { getCarDetails, fetchCars } from "../redux/carSlice";
+import { getCarDetails } from "../redux/carSlice";
 
 import Container from "./Container";
 import "./myreservation.css";
@@ -24,7 +24,6 @@ const MyReservations = () => {
 
   useEffect(() => {
     if (status === "idle") {
-      dispatch(fetchCars());
       dispatch(fetchReservations());
     }
   }, [status, dispatch]);

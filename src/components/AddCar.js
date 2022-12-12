@@ -1,17 +1,17 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { SpinnerRoundOutlined } from 'spinners-react';
-import { ToastContainer } from 'react-toastify';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { SpinnerRoundOutlined } from "spinners-react";
+import { ToastContainer } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-import { getCarsStatus, getCarsError, createCar } from '../redux/carSlice';
-import Navbar from './Navbar';
-import './AddCar.css';
-import { handleToast } from '../redux/utils';
-import Container from './Container';
+import { getCarsStatus, getCarsError, createCar } from "../redux/carSlice";
+import Navbar from "./Navbar";
+import "./AddCar.css";
+import { handleToast } from "../redux/utils";
+import Container from "./Container";
 
 const schema = yup
   .object({
@@ -24,7 +24,7 @@ const schema = yup
   })
   .required();
 
-function AddCar() {
+const AddCar = () => {
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
@@ -35,16 +35,16 @@ function AddCar() {
   let isLoading = false;
 
   useEffect(() => {
-    if (status === 'loading') {
+    if (status === "loading") {
       isLoading = true;
     }
-    if (error) handleToast({ msg: error, type: 'error' });
+    if (error) handleToast({ msg: error, type: "error" });
   }, [status, dispatch]);
 
   const onSubmit = async (data) => {
     const res = await dispatch(createCar(data));
-    if (res.meta.requestStatus === 'fulfilled') {
-      handleToast({ msg: 'Car added successfully', type: 'success' });
+    if (res.meta.requestStatus === "fulfilled") {
+      handleToast({ msg: "Car added successfully", type: "success" });
     }
   };
 
@@ -58,16 +58,16 @@ function AddCar() {
             <div className="form">
               <h1>Add A New Car</h1>
               <form onSubmit={handleSubmit(onSubmit)} className="add-car-form">
-                <input required {...register('name')} placeholder="Name" />
+                <input required {...register("name")} placeholder="Name" />
 
-                <input required {...register('brand')} placeholder="Brand" />
+                <input required {...register("brand")} placeholder="Brand" />
 
                 <input
                   required
                   type="number"
                   min="1"
                   max="10000000"
-                  {...register('optionToPurchaseFee')}
+                  {...register("optionToPurchaseFee")}
                   placeholder="Option to Purchase Fee"
                 />
 
@@ -76,7 +76,7 @@ function AddCar() {
                   type="number"
                   min="1"
                   max="10000000"
-                  {...register('totalAmountPayable')}
+                  {...register("totalAmountPayable")}
                   placeholder="Total Amount Payable at the end of the contract"
                 />
 
@@ -85,13 +85,13 @@ function AddCar() {
                   type="number"
                   min="1"
                   max="10000000"
-                  {...register('duration')}
+                  {...register("duration")}
                   placeholder="Duration"
                 />
 
                 <input
                   required
-                  {...register('image')}
+                  {...register("image")}
                   placeholder="Image Url"
                 />
 
@@ -99,7 +99,7 @@ function AddCar() {
                   {isLoading ? (
                     <SpinnerRoundOutlined color="black" size={100} />
                   ) : (
-                    'Add Car'
+                    "Add Car"
                   )}
                 </button>
               </form>
@@ -109,6 +109,6 @@ function AddCar() {
       </div>
     </Container>
   );
-}
+};
 
 export default AddCar;
