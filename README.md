@@ -23,11 +23,9 @@
     - [Run tests](#run-tests)
     - [Deployment](#deployment)
   - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
@@ -197,9 +195,10 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
 I would like to thank...
+
+- [Creative Commons](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) for design
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

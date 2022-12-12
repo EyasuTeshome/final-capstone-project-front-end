@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import { SpinnerRoundOutlined } from 'spinners-react';
 import { logInUser } from '../redux/loginSlice';
 import './auth.css';
-import { handleToast } from '../redux/utils';
+import { API_URL, handleToast } from '../redux/utils';
 
 export default function SignUpPage() {
   const [name, setName] = useState('');
@@ -33,7 +33,7 @@ export default function SignUpPage() {
     setIsLoading(true);
 
     try {
-      const res = await fetch('http://localhost:3000/users', {
+      const res = await fetch(`${API_URL}/users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,16 +51,19 @@ export default function SignUpPage() {
       if (res.status === 200) {
         dispatch(logInUser({ email, password }));
       } else {
-        handleToast(
-          <p>
-            {msg.error}
-            <br />
-            {msg.exception}
-          </p>,
-        );
+        handleToast({
+          msg: (
+            <p>
+              {msg.message}
+              <br />
+              {msg.exception}
+            </p>
+          ),
+          type: 'error',
+        });
       }
     } catch (err) {
-      handleToast(err.message);
+      handleToast({ msg: err.message, type: 'error' });
     }
     setIsLoading(false);
   };
