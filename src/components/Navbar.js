@@ -7,7 +7,7 @@ import MobileMenu from "./Mobilemenu";
 import iconShow from "../images/icon-show-sidebar.svg";
 import iconHide from "../images/icon-hide-sidebar.svg";
 
-function Navbar() {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const user = useSelector((state) => state.user);
   const [NavbarData, setNavbarData] = useState([
@@ -94,6 +94,6 @@ function Navbar() {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

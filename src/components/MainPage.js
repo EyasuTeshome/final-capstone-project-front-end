@@ -18,7 +18,7 @@ import {
 } from "../redux/carSlice";
 import Container from "./Container";
 
-function MainPage() {
+const MainPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cars = useSelector(getAllCars);
@@ -121,6 +121,6 @@ function MainPage() {
       </div>
     </Container>
   );
-}
+};
 
 export default MainPage;
