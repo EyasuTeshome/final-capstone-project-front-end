@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { SpinnerRoundOutlined } from 'spinners-react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { SpinnerRoundOutlined } from "spinners-react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   logInUser,
   logInUserStatus,
   logInUserError,
-} from '../redux/loginSlice';
-import './auth.css';
-import { handleToast } from '../redux/utils';
+} from "../redux/loginSlice";
+import "./auth.css";
+import { handleToast } from "../redux/utils";
 
-export default function LogInPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const LogInPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const user = useSelector((state) => state.user);
   const status = useSelector(logInUserStatus);
   const error = useSelector(logInUserError);
@@ -23,9 +23,9 @@ export default function LogInPage() {
 
   // If the user is already logged in redirect to home page
   useEffect(() => {
-    if (user.data) navigate('/');
+    if (user.data) navigate("/");
     // toast if error
-    if (error) handleToast({ msg: error, type: 'error' });
+    if (error) handleToast({ msg: error, type: "error" });
   }, [user, dispatch]);
 
   const handleSubmit = async (e) => {
@@ -34,7 +34,7 @@ export default function LogInPage() {
   };
 
   let isLoading = false;
-  if (status === 'loading') {
+  if (status === "loading") {
     isLoading = true;
   }
 
@@ -67,7 +67,7 @@ export default function LogInPage() {
                   <SpinnerRoundOutlined color="black" size={40} />
                 </span>
               ) : (
-                'Log In'
+                "Log In"
               )}
             </button>
 
@@ -79,4 +79,6 @@ export default function LogInPage() {
       </div>
     </div>
   );
-}
+};
+
+export default LogInPage;

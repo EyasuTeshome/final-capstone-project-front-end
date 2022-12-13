@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
-import { SpinnerRoundOutlined } from 'spinners-react';
-import { logInUser } from '../redux/loginSlice';
-import './auth.css';
-import { API_URL, handleToast } from '../redux/utils';
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import { SpinnerRoundOutlined } from "spinners-react";
+import { logInUser } from "../redux/loginSlice";
+import "./auth.css";
+import { API_URL, handleToast } from "../redux/utils";
 
-export default function SignUpPage() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const SignUpPage = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const user = useSelector((state) => state.user);
@@ -19,7 +19,7 @@ export default function SignUpPage() {
 
   // If the user is already logged in redirect to home page
   useEffect(() => {
-    if (user.data) navigate('/');
+    if (user.data) navigate("/");
   }, [user]);
 
   const handleSubmit = async (e) => {
@@ -34,9 +34,9 @@ export default function SignUpPage() {
 
     try {
       const res = await fetch(`${API_URL}/users`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           user: {
@@ -59,11 +59,11 @@ export default function SignUpPage() {
               {msg.exception}
             </p>
           ),
-          type: 'error',
+          type: "error",
         });
       }
     } catch (err) {
-      handleToast({ msg: err.message, type: 'error' });
+      handleToast({ msg: err.message, type: "error" });
     }
     setIsLoading(false);
   };
@@ -81,7 +81,7 @@ export default function SignUpPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="name"
-                className={!isValid && !name.trim() ? 'red-border' : ''}
+                className={!isValid && !name.trim() ? "red-border" : ""}
               />
               {!isValid && !name.trim() && (
                 <span className="invalid-input">Can&apos;t be empty</span>
@@ -99,7 +99,7 @@ export default function SignUpPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="password"
-                className={!isValid && password.length < 6 ? 'red-border' : ''}
+                className={!isValid && password.length < 6 ? "red-border" : ""}
               />
               {!isValid && password.length < 6 && (
                 <span className="invalid-input">
@@ -115,7 +115,7 @@ export default function SignUpPage() {
                   <SpinnerRoundOutlined color="black" size={40} />
                 </span>
               ) : (
-                'Register'
+                "Register"
               )}
             </button>
 
@@ -129,4 +129,6 @@ export default function SignUpPage() {
       </div>
     </div>
   );
-}
+};
+
+export default SignUpPage;

@@ -14,7 +14,7 @@ import {
   getDetailsStatus,
 } from "../redux/carSlice";
 
-function DetailsPage() {
+const DetailsPage = () => {
   const [currentColor, setCurrentColor] = useState("#97bf10");
   const handleOnChange = (color) => {
     setCurrentColor(color.hex);
@@ -85,6 +85,6 @@ function DetailsPage() {
   }
 
   return <Container>{renderDetails}</Container>;
-}
+};
 
 export default DetailsPage;
