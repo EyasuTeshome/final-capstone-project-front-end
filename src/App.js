@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import {
-  BrowserRouter as Router,
+  HashRouter,
   Navigate,
   Route,
   Routes,
@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Router>
+      <HashRouter>
         <Routes>
           <Route path="/sign_up" element={<SignUpPage />} />
           <Route path="/log_in" element={<LogInPage />} />
@@ -39,7 +39,7 @@ const App = () => {
             <Route path="*" element={<Navigate to="/sign_up" />} />
           )}
         </Routes>
-      </Router>
+      </HashRouter>
     </div>
   );
 };
