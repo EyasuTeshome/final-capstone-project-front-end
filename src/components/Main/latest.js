@@ -1,17 +1,4 @@
- <h5>Car 1</h5>
-                </div>
-                <div className="item">
-                  <img src={img2} alt="car" />
-                  <h5>Car2</h5>
-                </div>
-                <div className="item">
-                  <img src={img3} alt="car" />
-                  <h5>Car3</h5>
-                </div>
-                <div className="item">
-                  <img src={img4} alt="car" />
-                  <h5>car</h5>
-                </div>
+
                 <div className="item">
                   <img src={img1} alt="car" />
                   <h5>car</h5>
