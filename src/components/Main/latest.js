@@ -1,19 +1,4 @@
-
-
-const Latest = () => {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 3,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-
-                  <h5>Car 1</h5>
+ <h5>Car 1</h5>
                 </div>
                 <div className="item">
                   <img src={img2} alt="car" />
