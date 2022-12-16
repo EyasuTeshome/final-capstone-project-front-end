@@ -28,15 +28,6 @@ const Latest = () => {
     },
   };
 
-  return (
-    <section className="latest">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <div className="skill-bx wow zoomIn">
-              <h1>Latest</h1>
-              <hr />
-              <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. my text.
               </p>
               <Carousel responsive={responsive} infinite className="owl-carousel owl-theme skill-slider">
