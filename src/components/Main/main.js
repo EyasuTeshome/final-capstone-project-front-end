@@ -1,15 +1,4 @@
-            <p>car 1 details</p>
-            <div className="price">
-              <p>Finance Fee</p>
-              <p>$129</p>
-            </div>
-            <div className="price even">
-              <p>Finance Fee</p>
-              <p>$129</p>
-            </div>
-            <div className="price">
-              <p>Finance Fee</p>
-              <p>$129</p>
+                        <p>$129</p>
             </div>
             <div className="price even">
               <p>Finance Fee</p>
