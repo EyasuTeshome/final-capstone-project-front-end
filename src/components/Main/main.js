@@ -1,10 +1,4 @@
-import React from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
-import img1 from '../images/car11.png';
-import img2 from '../images/car30.jpg';
-import img3 from '../images/car80.jpg';
-import '../../App.css';
+
 
 function Slider() {
   return (
