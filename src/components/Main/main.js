@@ -3,14 +3,6 @@
               <p>Finance Fee</p>
               <p>$129</p>
             </div>
-            <div className="price">
-              <p>Finance Fee</p>
-              <p>$129</p>
-            </div>
-            <div className="price even">
-              <p>Finance Fee</p>
-              <p>$129</p>
-            </div>
             <p>
               <span>5.9% APR </span>
               representative
